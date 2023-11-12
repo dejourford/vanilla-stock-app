@@ -2,18 +2,28 @@
 let users = []
 let user
 // create object for new user
-function User (id,username,password, balance) {
-    this.id = id,
-    this.username = username,
-    this.password = password,
-    this.balance = balance,
-    this.getBalance = function getBalance() {
-        console.log(`${this.username} has a balance of ${this.balance}`)
+class User {
+    constructor(id, username, password, balance) {
+        this.id = id, 
+        this.username = username;
+        this.password = password; 
+        this.balance = balance;
+    }
+
+    getBalance() {
+        return `${this.username}'s balance is ${this.balance}`
     }
 }
+
+
 // capture input value and store as variable on button press
 const logInButton = document.querySelector('.log-in-button')
-logInButton.addEventListener('click', createNewUser)
+logInButton.addEventListener('click', function(e) {
+    e.preventDefault()
+    createNewUser()
+    resetForm()
+})
+
 // create new user using captured values on button press
 function createNewUser() {
     console.log('a new user has been created')
@@ -23,12 +33,14 @@ function createNewUser() {
 // push user object to users array
     user = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
     users.push(user)
+
+    // display array
     console.log(users)
+
 }
 
-// display updated array
-function updateArray(users) {
-    console.log(users)
-    users = users
+// clear inputs
+function resetForm() {
+    const form = document.querySelector('.input-section')
+    form.reset()
 }
-
