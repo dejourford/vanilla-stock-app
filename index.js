@@ -30,7 +30,7 @@ function createNewUser() {
     let usernameInputValue = document.querySelector('.username-input-value').value
     let passwordInputValue = document.querySelector('.password-input-value').value
     let balance = 0
-// push user object to users array
+    // push user object to users array
     user = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
     users.push(user)
 
@@ -44,3 +44,4 @@ function resetForm() {
     const form = document.querySelector('.input-section')
     form.reset()
 }
+
