@@ -45,3 +45,5 @@ function resetForm() {
     form.reset()
 }
 
+// assign local storage to variale
+// add users array to local storage
