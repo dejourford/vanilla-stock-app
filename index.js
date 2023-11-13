@@ -4,7 +4,7 @@ let ls = localStorage
 // TASK: CREATE FUNCTION TO GET USER ARRAY FROM LOCAL STORAGE
 function getLocalStorage(userArray) {
     // get value of local storage
-    const retreivedArrayString = localStorage.getItem(userArray)
+    const retreivedArrayString = ls.getItem(userArray)
     
     // check if retrieved value is null
     if (retreivedArrayString === null) {
@@ -64,7 +64,7 @@ function createNewUser() {
     console.log('a new user has been created')
     let usernameInputValue = document.querySelector('.username-input-value').value
     let passwordInputValue = document.querySelector('.password-input-value').value
-    let balance = 0
+    let balance = 100
     // push user object to users array
     user = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
     users.push(user)
