@@ -49,7 +49,6 @@ class User {
     }
 }
 
-
 // capture input value and store as variable on button press
 const logInButton = document.querySelector('.log-in-button')
 logInButton.addEventListener('click', function(e) {
