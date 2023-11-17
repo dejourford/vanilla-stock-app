@@ -1,5 +1,12 @@
-// create local storage variable
 let ls = localStorage
+let usernameInputValue
+let passwordInputValue
+let attemptedUsername
+let attemptedPassword
+let balance
+const createNewAccountButton = document.createElement('button')
+const inputSection = document.querySelector('.input-section')
+const logInButton = document.querySelector('.log-in-button')
 
 // TASK: CREATE FUNCTION TO GET USER ARRAY FROM LOCAL STORAGE
 function getLocalStorage(userArray) {
@@ -21,6 +28,13 @@ function getLocalStorage(userArray) {
 
 // TASK: CREATE FUNCTION TO ADD USER ARRAY TO LOCAL STORAGE
 function addUserToLocalStorage(users) {
+    // push user object to users array
+    user = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
+    users.push(user)
+
+    // display array
+    console.log(users)
+    
     // TASK: ADD USERS ARRAY TO LOCAL STORAGE
     // convert array to a JSON string
     const arrayString = JSON.stringify(users)
@@ -29,6 +43,8 @@ function addUserToLocalStorage(users) {
     // add JSON string to local storage
     ls.setItem('userArray', arrayString)
     console.log(ls)
+
+    
 }
 
 
@@ -53,15 +69,10 @@ let user;
 
 function createNewUser() {
     console.log('a new user has been created')
-    let usernameInputValue = document.querySelector('.username-input-value').value
-    let passwordInputValue = document.querySelector('.password-input-value').value
+     usernameInputValue = document.querySelector('.username-input-value').value
+     passwordInputValue = document.querySelector('.password-input-value').value
     let balance = 100
-    // push user object to users array
-    user = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
-    users.push(user)
-
-    // display array
-    console.log(users)
+    
 }
 
 // clear inputs
@@ -70,16 +81,83 @@ function resetForm() {
     form.reset()
 }
 
-// capture input value and store as variable on button press
-const logInButton = document.querySelector('.log-in-button')
-logInButton.addEventListener('click', function(e) {
-    e.preventDefault()
-    createNewUser()
-    addUserToLocalStorage(users)
-    resetForm()
-})
 
 // TASK: IF USER SIGN IS NOT ALREADY IN LOCAL STORAGE, THEN 
 // THEY MUST CREATE A NEW ACCOUNT. THE CREATE NEW ACCOUNT 
 // BUTTON SHOULD APPEAR IN THE DOM AFTER NO USER FOUND.
 // IF USER IS FOUND, THEN CONSOLE LOG SUCCESS MESSAGE.
+
+
+function validateUser() {
+    
+    // grab inputted values from sign-in attempt
+    console.log(`${usernameInputValue} is trying to sign in with the password: ${passwordInputValue}`)
+    attemptedUsername = usernameInputValue
+    attemptedPassword = passwordInputValue
+    console.log(attemptedUsername, attemptedPassword)
+    // compare values to users in local storage.
+    for (let i = 0; i < users.length; i++) {
+        
+        
+
+        // if user in local storage, log 'success'
+        console.log(users)
+        if (users == null) {
+            makeCreateAccountButton()
+        }
+        else {
+
+        
+        const loginSucessful = 
+        attemptedUsername === users[i].username && 
+        attemptedPassword === users[i].password
+
+        loginSucessful ? resetForm() : makeCreateAccountButton()
+         break
+        console.log(users[i].username, attemptedUsername)
+        // else log 'fail'
+
+        }
+    }
+    
+
+}
+// create function to generate a create account button
+// when no created user is found in local storage
+function makeCreateAccountButton() {
+    logInButton.textContent = 'Create New Account'
+    generateErrorMessage()
+}
+
+// create function to display error message
+function generateErrorMessage() {
+    const message = document.querySelector('#message')
+    message.textContent = 
+    `No user was found with this username or password. 
+    Please create a new account.
+    `
+}
+
+// create function to reset page after successful login
+function resetPage() {
+    message.textContent = 'Log In to Stock'
+    logInButton.textContent = 'Log In'
+    resetForm()
+}
+
+// capture input value and store as variable on button press
+logInButton.addEventListener('click', function(e) {
+    e.preventDefault()
+    if (message.textContent != 'Log In to Stock') {
+        addUserToLocalStorage(users)
+        resetPage()
+    }
+    else {
+        makeCreateAccountButton()
+    }
+    validateUser()
+    
+    createNewUser()
+    
+    
+})
