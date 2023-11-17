@@ -93,3 +93,7 @@ button {
     font-weight: 800;
     cursor: pointer;
 }
+
+#create-new-account-button {
+    background: var(--accent-color);
+}
