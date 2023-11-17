@@ -18,7 +18,6 @@ function getLocalStorage(userArray) {
     return retreivedArray
 }
 
-let users = getLocalStorage('userArray')
 
 // TASK: CREATE FUNCTION TO ADD USER ARRAY TO LOCAL STORAGE
 function addUserToLocalStorage(users) {
@@ -32,8 +31,6 @@ function addUserToLocalStorage(users) {
     console.log(ls)
 }
 
-// create user variable
-let user
 
 // create object for new user
 class User {
@@ -59,6 +56,9 @@ logInButton.addEventListener('click', function(e) {
 })
 
 // create new user using captured values on button press
+let users = getLocalStorage('userArray')
+let user;
+
 function createNewUser() {
     console.log('a new user has been created')
     let usernameInputValue = document.querySelector('.username-input-value').value
