@@ -46,14 +46,6 @@ class User {
     }
 }
 
-// capture input value and store as variable on button press
-const logInButton = document.querySelector('.log-in-button')
-logInButton.addEventListener('click', function(e) {
-    e.preventDefault()
-    createNewUser()
-    addUserToLocalStorage(users)
-    resetForm()
-})
 
 // create new user using captured values on button press
 let users = getLocalStorage('userArray')
@@ -78,3 +70,16 @@ function resetForm() {
     form.reset()
 }
 
+// capture input value and store as variable on button press
+const logInButton = document.querySelector('.log-in-button')
+logInButton.addEventListener('click', function(e) {
+    e.preventDefault()
+    createNewUser()
+    addUserToLocalStorage(users)
+    resetForm()
+})
+
+// TASK: IF USER SIGN IS NOT ALREADY IN LOCAL STORAGE, THEN 
+// THEY MUST CREATE A NEW ACCOUNT. THE CREATE NEW ACCOUNT 
+// BUTTON SHOULD APPEAR IN THE DOM AFTER NO USER FOUND.
+// IF USER IS FOUND, THEN CONSOLE LOG SUCCESS MESSAGE.
