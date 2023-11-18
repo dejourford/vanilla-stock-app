@@ -96,14 +96,15 @@ function validateUser() {
     attemptedPassword = passwordInputValue
     console.log(attemptedUsername, attemptedPassword)
     // compare values to users in local storage.
-    for (let i = 0; i < users.length; i++) {
+    for (let i = 0; i <= users.length; i++) {
         
         
 
         // if user in local storage, log 'success'
         console.log(users)
-        if (users == null) {
+        if (users.length === 0) {
             makeCreateAccountButton()
+            console.log('no users here')
         }
         else {
 
@@ -113,8 +114,7 @@ function validateUser() {
         attemptedPassword === users[i].password
 
         loginSucessful ? resetForm() : makeCreateAccountButton()
-         break
-        console.log(users[i].username, attemptedUsername)
+        
         // else log 'fail'
 
         }
@@ -147,17 +147,17 @@ function resetPage() {
 
 // capture input value and store as variable on button press
 logInButton.addEventListener('click', function(e) {
+    
     e.preventDefault()
-    if (message.textContent != 'Log In to Stock') {
+    
+debugger
+    
+    createNewUser()
+    validateUser()
+    if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
         addUserToLocalStorage(users)
         resetPage()
     }
-    else {
-        makeCreateAccountButton()
-    }
-    validateUser()
-    
-    createNewUser()
     
     
 })
