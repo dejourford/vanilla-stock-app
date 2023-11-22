@@ -3,7 +3,8 @@ let usernameInputValue
 let passwordInputValue
 let attemptedUsername
 let attemptedPassword
-let balance
+let balance = 100
+let users = getLocalStorage('userArray')
 const createNewAccountButton = document.createElement('button')
 const inputSection = document.querySelector('.input-section')
 const logInButton = document.querySelector('.log-in-button')
@@ -29,8 +30,8 @@ function getLocalStorage(userArray) {
 // TASK: CREATE FUNCTION TO ADD USER ARRAY TO LOCAL STORAGE
 function addUserToLocalStorage(users) {
     // push user object to users array
-    user = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
-    users.push(user)
+    let newUser = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
+    users.push(newUser)
 
     // display array
     console.log(users)
@@ -42,7 +43,10 @@ function addUserToLocalStorage(users) {
     console.log(`The array string is ${arrayString}`)
     // add JSON string to local storage
     ls.setItem('userArray', arrayString)
-    console.log(ls)
+    
+    users =  getLocalStorage('userArray')
+    
+    console.log(ls.getItem('userArray'))
 
     
 }
@@ -50,6 +54,7 @@ function addUserToLocalStorage(users) {
 
 // create object for new user
 class User {
+    
     constructor(id, username, password, balance) {
         this.id = id, 
         this.username = username;
@@ -64,14 +69,14 @@ class User {
 
 
 // create new user using captured values on button press
-let users = getLocalStorage('userArray')
+// let users = getLocalStorage('userArray')
 let user;
 
 function createNewUser() {
     console.log('a new user has been created')
      usernameInputValue = document.querySelector('.username-input-value').value
      passwordInputValue = document.querySelector('.password-input-value').value
-    let balance = 100
+    // let balance = 100
     
 }
 
@@ -96,29 +101,31 @@ function validateUser() {
     attemptedPassword = passwordInputValue
     console.log(attemptedUsername, attemptedPassword)
     // compare values to users in local storage.
-    for (let i = 0; i <= users.length; i++) {
+    if (users.length === 0) {
+        makeCreateAccountButton()
+        console.log('no users here')
+    }
+    for (let i = 0; i < users.length; i++) {
         
         
-
         // if user in local storage, log 'success'
         console.log(users)
-        if (users.length === 0) {
-            makeCreateAccountButton()
-            console.log('no users here')
-        }
-        else {
+        // if (users.length === 0) {
+        //     makeCreateAccountButton()
+        //     console.log('no users here')
+        // }
+        
 
         
         const loginSucessful = 
         attemptedUsername === users[i].username && 
         attemptedPassword === users[i].password
 
-        loginSucessful ? resetForm() : makeCreateAccountButton()
+        return loginSucessful 
         
-        // else log 'fail'
-
-        }
+        
     }
+
     
 
 }
@@ -147,17 +154,26 @@ function resetPage() {
 
 // capture input value and store as variable on button press
 logInButton.addEventListener('click', function(e) {
-    
+    debugger
+    // when user clicks login, use that info to create a new user
     e.preventDefault()
-    
-debugger
-    
     createNewUser()
+    // using the new user, compare it against the users in the local storage array
     validateUser()
-    if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
-        addUserToLocalStorage(users)
-        resetPage()
-    }
+    // if there is no user, then push the new user to the local storage array
+    validateUser ? console.log('user has been logged in') : makeCreateAccountButton()
+    // if there is already a user in ls array, then generate button and message content to create a new user
+    // when button is clicked, add new user to local storage array
+    
+    
+    
+    
+    // if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
+    //     validateUser()
+    //     addUserToLocalStorage(users)
+        
+    //     resetPage()
+    // }
     
     
 })
