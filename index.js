@@ -5,6 +5,7 @@ let attemptedUsername
 let attemptedPassword
 let balance = 100
 let users = getLocalStorage('userArray')
+let userLoggedIn = false
 const createNewAccountButton = document.createElement('button')
 const inputSection = document.querySelector('.input-section')
 const logInButton = document.querySelector('.log-in-button')
@@ -110,18 +111,12 @@ function validateUser() {
         
         // if user in local storage, log 'success'
         console.log(users)
-        // if (users.length === 0) {
-        //     makeCreateAccountButton()
-        //     console.log('no users here')
-        // }
-        
-
         
         const loginSucessful = 
         attemptedUsername === users[i].username && 
         attemptedPassword === users[i].password
 
-        return loginSucessful 
+        return loginSucessful ? userLoggedIn = true : userLoggedIn = false 
         
         
     }
@@ -155,25 +150,27 @@ function resetPage() {
 // capture input value and store as variable on button press
 logInButton.addEventListener('click', function(e) {
     debugger
+    if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
+        validateUser()
+        addUserToLocalStorage(users)
+        
+        resetPage()
+        return
+    }
+    
     // when user clicks login, use that info to create a new user
     e.preventDefault()
     createNewUser()
     // using the new user, compare it against the users in the local storage array
     validateUser()
     // if there is no user, then push the new user to the local storage array
-    validateUser ? console.log('user has been logged in') : makeCreateAccountButton()
-    // if there is already a user in ls array, then generate button and message content to create a new user
-    // when button is clicked, add new user to local storage array
-    
-    
-    
-    
-    // if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
-    //     validateUser()
-    //     addUserToLocalStorage(users)
-        
-    //     resetPage()
-    // }
-    
+    if (userLoggedIn) {
+        console.log(`${usernameInputValue} has logged in`)
+        resetForm()
+    }
+    else {
+        makeCreateAccountButton()
+    }
+   
     
 })
