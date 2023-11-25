@@ -101,6 +101,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    opacity: 80%;
+}
+
 #create-new-account-button {
     background: var(--accent-color);
 }
@@ -109,13 +113,21 @@ button {
     position: absolute;
     bottom: 50px;
     right: 50px;
-    font-size: 2rem;
+    font-size: 1rem;
     cursor: pointer;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 1em;
+}
+.toggle-text {
+    color: var(--accent-color);
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-transform: uppercase;
+    font-weight: 100;
 }
 
-/* .fa-play {
-    display: none;
-} */
 
 /* media queries */
 @media screen and (min-width: 540px) {
