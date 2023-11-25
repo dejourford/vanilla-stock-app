@@ -10,6 +10,13 @@ let currentUser
 const createNewAccountButton = document.createElement('button')
 const inputSection = document.querySelector('.input-section')
 const logInButton = document.querySelector('.log-in-button')
+const playButton =  document.querySelector('.play-button')
+const pauseButton =  document.querySelector('.pause-button')
+const backgroundMusic = document.querySelector('#backgroundMusic')
+
+
+// on windows load, set play button to hidden
+playButton.style.display = 'none'
 
 // TASK: CREATE FUNCTION TO GET USER ARRAY FROM LOCAL STORAGE
 function getLocalStorage(userArray) {
@@ -182,4 +189,19 @@ logInButton.addEventListener('click', function(e) {
     }
    
     
+})
+
+
+// if user clicks button, peform that function
+playButton.addEventListener('click', function() {
+    backgroundMusic.play()
+    playButton.style.display = 'none'
+    pauseButton.style.display = 'flex'
+})
+
+pauseButton.addEventListener('click', function() {
+    backgroundMusic.pause()
+    pauseButton.style.display = 'none'
+    playButton.style.display = 'flex'
+    console.log('the music has been paused')
 })
