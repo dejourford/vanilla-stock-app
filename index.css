@@ -8,13 +8,14 @@
     --primary-color: #141414;
     --secondary-color: #474747;
     --text-color: #FFFFFF;
-    --accent-color: #D7FE62;
+    --accent-color: lime;
     --negative-color: #dc143c;
   }
   
   html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
+    
   }
   
   body {
@@ -30,12 +31,17 @@
     background: black;
 }
 
+.login-screen-image {
+    height: 100vh;
+    display: none;
+}
+
 .login-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 1em;
-    height: 100vh;
+    height: 90vh;
     gap: 1em;
 }
 
@@ -54,7 +60,7 @@ h1 {
     align-items: center;
 }
 
-h4 {
+#message {
     color: var(--text-color);
     font-weight: 100;
     text-align: center;
@@ -85,11 +91,11 @@ input:focus {
 }
 
 button {
-    padding: 0.5em;
-    color: var(--secondary-color);
+    padding: 1em 0.5em;
+    color: black;
     background: var(--accent-color);
     border: none;
-    border-radius: 0.3em;
+    border-radius: 2em;
     width: 100%;
     font-weight: 800;
     cursor: pointer;
@@ -97,4 +103,58 @@ button {
 
 #create-new-account-button {
     background: var(--accent-color);
+}
+
+/* media queries */
+@media screen and (min-width: 540px) {
+    button {
+        max-width: 150px;
+    }
+    .input-section {
+        align-items: flex-start;
+    }
+
+    #message {
+        align-self: center;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .login-screen-image {
+        display: block;
+        width: 100%;
+        object-fit:cover;
+        object-position: center;
+        
+
+    }
+
+    body {
+        display: flex;
+    }
+    
+    .login-left {
+        width: 50%;
+    }
+
+    .login-right {
+        width: 100%;
+        padding: 2em;
+    }
+
+   input {
+    max-width: 500px;
+   }
+
+   .login-section {
+    display: flex;
+   }
+
+   h1 {
+    text-align: start;
+   }
+
+   #message {
+    align-self: auto;
+   }
 }
