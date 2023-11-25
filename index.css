@@ -8,7 +8,7 @@
     --primary-color: #141414;
     --secondary-color: #474747;
     --text-color: #FFFFFF;
-    --accent-color: lime;
+    --accent-color: #00ff00;
     --negative-color: #dc143c;
   }
   
@@ -104,6 +104,18 @@ button {
 #create-new-account-button {
     background: var(--accent-color);
 }
+
+.fa-play, .fa-pause {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* .fa-play {
+    display: none;
+} */
 
 /* media queries */
 @media screen and (min-width: 540px) {
