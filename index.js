@@ -6,6 +6,7 @@ let attemptedPassword
 let balance = 100
 let users = getLocalStorage('userArray')
 let userLoggedIn = false
+let currentUser
 const createNewAccountButton = document.createElement('button')
 const inputSection = document.querySelector('.input-section')
 const logInButton = document.querySelector('.log-in-button')
@@ -116,8 +117,16 @@ function validateUser() {
         attemptedUsername === users[i].username && 
         attemptedPassword === users[i].password
 
-        return loginSucessful ? userLoggedIn = true : userLoggedIn = false 
-        
+        if (loginSucessful) {
+            userLoggedIn = true
+            currentUser = users[i]
+            console.log(`the current user is ${currentUser.username}`)
+            return
+        }
+        else {
+            userLoggedIn = false
+        }
+
         
     }
 
@@ -149,7 +158,7 @@ function resetPage() {
 
 // capture input value and store as variable on button press
 logInButton.addEventListener('click', function(e) {
-    debugger
+
     if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
         validateUser()
         addUserToLocalStorage(users)
