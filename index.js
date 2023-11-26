@@ -1,3 +1,5 @@
+
+
 let ls = localStorage
 let usernameInputValue
 let passwordInputValue
@@ -7,7 +9,7 @@ let balance = 100
 let users = getLocalStorage('userArray')
 let userLoggedIn = false
 let message = document.querySelector('#message')
-export let currentUser
+let currentUser
 const createNewAccountButton = document.createElement('button')
 const inputSection = document.querySelector('.input-section')
 const logInButton = document.querySelector('.log-in-button')
@@ -22,17 +24,19 @@ playButton.style.display = 'none'
 // on windows load, set the music volume to 50%
 backgroundMusic.volume = 0.08
 buttonPressSound.volume = 0.2
+negativeSound.volume = 0.2
 // button press audio sounds
 logInButton.addEventListener('click', playSound)
 
 // create a play sound function
 function playSound(e) {
     console.log(e.target)
-    if (e.target === logInButton && message.textContent === 'Log In to Stock') {
-        negativeSound.play()
+    if (logInButton.textContent != 'Log In' ) {
+        buttonPressSound.play()
+        
     }
     else {
-        buttonPressSound.play()
+        negativeSound.play()
     }
 }
 
@@ -201,7 +205,12 @@ logInButton.addEventListener('click', function(e) {
         console.log(`${usernameInputValue} has logged in`)
         resetForm()
         // when user is logged in, redirect to dashboard
-        window.location.href = 'components/dashboard/dashboard.html'
+        buttonPressSound.play()
+        // create a delayed redirect
+        setTimeout(function redirectUser() {
+            window.location.href = 'components/dashboard/dashboard.html'
+        },1100)
+        
     }
     else {
         makeCreateAccountButton()

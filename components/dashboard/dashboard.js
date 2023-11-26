@@ -8,8 +8,9 @@ const playButton =  document.querySelector('.play-button')
 const pauseButton =  document.querySelector('.pause-button')
 const backgroundMusic = document.querySelector('#backgroundMusic')
 const buttonPressSound = document.querySelector('#button-press-sound')
+const negativeSound = document.querySelector('#negative-sound')
 const header = document.querySelector('header')
-
+const logoutButton = document.querySelector('.logout-button')
 // on windows load, set play button to hidden
 playButton.style.display = 'none'
 
@@ -17,7 +18,7 @@ playButton.style.display = 'none'
 backgroundMusic.volume = 0.08
 
 // button press audio sounds
-
+negativeSound.volume = 0.3
 
 // create a play sound function
 function playSound(e) {
@@ -70,3 +71,11 @@ h1.innerHTML = `Welcome, <br> ${capitalizeUsername(currentUser.username)}!`
 // display balance amount
 const balanceAmount = document.querySelector('.balance-amount')
 balanceAmount.innerHTML = `$${currentUser.balance}`
+
+// BUTTON PRESS SOUND EFFECTS
+// logoutButton.addEventListener('click', function() {
+//     negativeSound.play()
+//     setTimeout(function() {
+//         window.location.href = '../../index.html'
+//     }, 1100)
+// })
