@@ -6,7 +6,7 @@ let attemptedPassword
 let balance = 100
 let users = getLocalStorage('userArray')
 let userLoggedIn = false
-let currentUser
+export let currentUser
 const createNewAccountButton = document.createElement('button')
 const inputSection = document.querySelector('.input-section')
 const logInButton = document.querySelector('.log-in-button')
@@ -142,6 +142,7 @@ function validateUser() {
         if (loginSucessful) {
             userLoggedIn = true
             currentUser = users[i]
+            ls.setItem('currentUser', JSON.stringify(currentUser))
             console.log(`the current user is ${currentUser.username}`)
             return
         }
@@ -151,10 +152,8 @@ function validateUser() {
 
         
     }
-
-    
-
 }
+
 // create function to generate a create account button
 // when no created user is found in local storage
 function makeCreateAccountButton() {
@@ -199,7 +198,7 @@ logInButton.addEventListener('click', function(e) {
         console.log(`${usernameInputValue} has logged in`)
         resetForm()
         // when user is logged in, redirect to dashboard
-        window.location.href = 'components/dashboard.html'
+        window.location.href = 'components/dashboard/dashboard.html'
     }
     else {
         makeCreateAccountButton()
