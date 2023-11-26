@@ -1,5 +1,45 @@
-// create local storage variable
+
+
 let ls = localStorage
+let usernameInputValue
+let passwordInputValue
+let attemptedUsername
+let attemptedPassword
+let balance = 100
+let users = getLocalStorage('userArray')
+let userLoggedIn = false
+let message = document.querySelector('#message')
+let currentUser
+const createNewAccountButton = document.createElement('button')
+const inputSection = document.querySelector('.input-section')
+const logInButton = document.querySelector('.log-in-button')
+const playButton =  document.querySelector('.play-button')
+const pauseButton =  document.querySelector('.pause-button')
+const backgroundMusic = document.querySelector('#backgroundMusic')
+const buttonPressSound = document.querySelector('#button-press-sound')
+const negativeSound = document.querySelector('#negative-sound')
+// on windows load, set play button to hidden
+playButton.style.display = 'none'
+
+// on windows load, set the music volume to 50%
+backgroundMusic.volume = 0.08
+buttonPressSound.volume = 0.2
+negativeSound.volume = 0.2
+// button press audio sounds
+logInButton.addEventListener('click', playSound)
+
+// create a play sound function
+function playSound(e) {
+    console.log(e.target)
+    if (logInButton.textContent != 'Log In' ) {
+        buttonPressSound.play()
+        
+    }
+    else {
+        negativeSound.play()
+    }
+}
+
 
 // TASK: CREATE FUNCTION TO GET USER ARRAY FROM LOCAL STORAGE
 function getLocalStorage(userArray) {
@@ -18,10 +58,16 @@ function getLocalStorage(userArray) {
     return retreivedArray
 }
 
-let users = getLocalStorage('userArray')
 
 // TASK: CREATE FUNCTION TO ADD USER ARRAY TO LOCAL STORAGE
 function addUserToLocalStorage(users) {
+    // push user object to users array
+    let newUser = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
+    users.push(newUser)
+
+    // display array
+    console.log(users)
+    
     // TASK: ADD USERS ARRAY TO LOCAL STORAGE
     // convert array to a JSON string
     const arrayString = JSON.stringify(users)
@@ -29,14 +75,18 @@ function addUserToLocalStorage(users) {
     console.log(`The array string is ${arrayString}`)
     // add JSON string to local storage
     ls.setItem('userArray', arrayString)
-    console.log(ls)
+    
+    users =  getLocalStorage('userArray')
+    
+    console.log(ls.getItem('userArray'))
+
+    
 }
 
-// create user variable
-let user
 
 // create object for new user
 class User {
+    
     constructor(id, username, password, balance) {
         this.id = id, 
         this.username = username;
@@ -49,27 +99,17 @@ class User {
     }
 }
 
-// capture input value and store as variable on button press
-const logInButton = document.querySelector('.log-in-button')
-logInButton.addEventListener('click', function(e) {
-    e.preventDefault()
-    createNewUser()
-    addUserToLocalStorage(users)
-    resetForm()
-})
 
 // create new user using captured values on button press
+// let users = getLocalStorage('userArray')
+let user;
+
 function createNewUser() {
     console.log('a new user has been created')
-    let usernameInputValue = document.querySelector('.username-input-value').value
-    let passwordInputValue = document.querySelector('.password-input-value').value
-    let balance = 100
-    // push user object to users array
-    user = new User(users.length + 1, usernameInputValue, passwordInputValue, balance)
-    users.push(user)
-
-    // display array
-    console.log(users)
+     usernameInputValue = document.querySelector('.username-input-value').value
+     passwordInputValue = document.querySelector('.password-input-value').value
+    // let balance = 100
+    
 }
 
 // clear inputs
@@ -78,3 +118,118 @@ function resetForm() {
     form.reset()
 }
 
+
+// TASK: IF USER SIGN IS NOT ALREADY IN LOCAL STORAGE, THEN 
+// THEY MUST CREATE A NEW ACCOUNT. THE CREATE NEW ACCOUNT 
+// BUTTON SHOULD APPEAR IN THE DOM AFTER NO USER FOUND.
+// IF USER IS FOUND, THEN CONSOLE LOG SUCCESS MESSAGE.
+
+
+function validateUser() {
+    
+    // grab inputted values from sign-in attempt
+    console.log(`${usernameInputValue} is trying to sign in with the password: ${passwordInputValue}`)
+    attemptedUsername = usernameInputValue
+    attemptedPassword = passwordInputValue
+    console.log(attemptedUsername, attemptedPassword)
+    // compare values to users in local storage.
+    if (users.length === 0) {
+        makeCreateAccountButton()
+        console.log('no users here')
+    }
+    for (let i = 0; i < users.length; i++) {
+        
+        
+        // if user in local storage, log 'success'
+        console.log(users)
+        
+        const loginSucessful = 
+        attemptedUsername === users[i].username && 
+        attemptedPassword === users[i].password
+
+        if (loginSucessful) {
+            userLoggedIn = true
+            currentUser = users[i]
+            ls.setItem('currentUser', JSON.stringify(currentUser))
+            console.log(`the current user is ${currentUser.username}`)
+            return
+        }
+        else {
+            userLoggedIn = false
+        }
+
+        
+    }
+}
+
+// create function to generate a create account button
+// when no created user is found in local storage
+function makeCreateAccountButton() {
+    logInButton.textContent = 'Create New Account'
+    generateErrorMessage()
+}
+
+// create function to display error message
+function generateErrorMessage() {
+    message.textContent = 
+    `No user was found with this username or password. 
+    Please create a new account.
+    `
+}
+
+// create function to reset page after successful login
+function resetPage() {
+    message.textContent = 'Log In to Stock'
+    logInButton.textContent = 'Log In'
+    resetForm()
+}
+
+// capture input value and store as variable on button press
+logInButton.addEventListener('click', function(e) {
+
+    if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
+        validateUser()
+        addUserToLocalStorage(users)
+        
+        resetPage()
+        return
+    }
+    
+    // when user clicks login, use that info to create a new user
+    e.preventDefault()
+    createNewUser()
+    // using the new user, compare it against the users in the local storage array
+    validateUser()
+    // if there is no user, then push the new user to the local storage array
+    if (userLoggedIn) {
+        console.log(`${usernameInputValue} has logged in`)
+        resetForm()
+        // when user is logged in, redirect to dashboard
+        buttonPressSound.play()
+        // create a delayed redirect
+        setTimeout(function redirectUser() {
+            window.location.href = 'components/dashboard/dashboard.html'
+        },1100)
+        
+    }
+    else {
+        makeCreateAccountButton()
+    }
+   
+    
+})
+
+
+// if user clicks button, peform that function
+playButton.addEventListener('click', function() {
+    backgroundMusic.play()
+    playButton.style.display = 'none'
+    pauseButton.style.display = 'flex'
+})
+
+pauseButton.addEventListener('click', function() {
+    backgroundMusic.pause()
+    pauseButton.style.display = 'none'
+    playButton.style.display = 'flex'
+    console.log('the music has been paused')
+})

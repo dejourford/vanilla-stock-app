@@ -9,12 +9,18 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;700&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="index.css">
+     <!-- font awesome link -->
+     <script src="https://kit.fontawesome.com/46b2ce83c1.js" crossorigin="anonymous"></script>
 </head>
 <body>    
+    <div class="login-left">
+        <img class="login-screen-image" src="images/nyc-streets.jpg" alt="where's waldo image">
+    </div>
+    <div class="login-right">    
         <main class="login-section">
             <h1>stock</h1>
             <form class="input-section">
-                <h4>Log In to Stock</h4>
+                <h4 id="message">Log In to Stock</h4>
                 <div class="input-group">
                     <label htmlFor="" class="input-group-title">Username</label>
                     <input class="username-input-value" type="text"/>
@@ -26,8 +32,29 @@
                 </div>
                 
                 <button type="button" class="log-in-button">Log In</button>
+                <audio id="button-press-sound">
+                    <source src="music/button-press.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio id="negative-sound">
+                    <source src="music/negative-sound.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
             </form>
         </main>
-    <script src="index.js"></script>
+    </div>
+    <audio id="backgroundMusic"  autoplay loop>
+        <source src="music/Robots and Aliens - Joel Cummins.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="play-button" >
+        <i class="fa-solid fa-play" style="color:#00ff00"></i>
+    </div>
+    <div class="pause-button" >
+        <i class="fa-solid fa-pause" style="color:#00ff00"></i>
+    </div>
+    <p class="toggle-text">toggle music</p>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
