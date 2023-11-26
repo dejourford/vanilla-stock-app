@@ -18,6 +18,9 @@ const backgroundMusic = document.querySelector('#backgroundMusic')
 // on windows load, set play button to hidden
 playButton.style.display = 'none'
 
+// on windows load, set the music volume to 50%
+backgroundMusic.volume = 0.05
+
 // TASK: CREATE FUNCTION TO GET USER ARRAY FROM LOCAL STORAGE
 function getLocalStorage(userArray) {
     // get value of local storage
