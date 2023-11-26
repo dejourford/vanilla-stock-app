@@ -22,8 +22,14 @@
     font-family: 'Urbanist', sans-serif;
     background: black;
     color: var(--text-color);
+    height: 100%;
   }
 
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   /* pause and play buttons */
   .fa-play, .fa-pause {
     position: absolute;
@@ -45,8 +51,14 @@
 }
 
 /* MAIN DASHBOARD CSS */
-.welcome-message {
+header {
+    display: flex;
+    flex-direction: column;
     padding: 1em;
+}
+
+.welcome-message {
+    padding: 0.3em;
     text-align: center;
     font-size: 2.5rem;
 }
@@ -56,10 +68,47 @@
     border: 2px solid var(--accent-color);
     border-radius: 0.3em;
     width: 35%;
-    position: absolute;
-    right: 20px;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 0.2rem;
+    align-self: flex-end;
 }
+
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    padding: 1em;
+}
+
+button {
+    width: 40%;
+    padding: 0.5em 0.3em;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    border: none;
+    border-radius: 0.2em;
+}
+
+button:hover {
+    opacity: 70%;
+}
+
+#buy-button:hover,
+#earn-button:hover, 
+#deposit-button:hover{
+    background: var(--accent-color);
+}
+
+#sell-button:hover,
+#logout-button:hover {
+    background: var(--negative-color);
+}
+
+
