@@ -6,6 +6,7 @@ let attemptedPassword
 let balance = 100
 let users = getLocalStorage('userArray')
 let userLoggedIn = false
+let message = document.querySelector('#message')
 export let currentUser
 const createNewAccountButton = document.createElement('button')
 const inputSection = document.querySelector('.input-section')
@@ -14,20 +15,23 @@ const playButton =  document.querySelector('.play-button')
 const pauseButton =  document.querySelector('.pause-button')
 const backgroundMusic = document.querySelector('#backgroundMusic')
 const buttonPressSound = document.querySelector('#button-press-sound')
-
+const negativeSound = document.querySelector('#negative-sound')
 // on windows load, set play button to hidden
 playButton.style.display = 'none'
 
 // on windows load, set the music volume to 50%
 backgroundMusic.volume = 0.08
-
+buttonPressSound.volume = 0.2
 // button press audio sounds
 logInButton.addEventListener('click', playSound)
 
 // create a play sound function
 function playSound(e) {
     console.log(e.target)
-    if (e.target === logInButton) {
+    if (e.target === logInButton && message.textContent === 'Log In to Stock') {
+        negativeSound.play()
+    }
+    else {
         buttonPressSound.play()
     }
 }
@@ -163,7 +167,6 @@ function makeCreateAccountButton() {
 
 // create function to display error message
 function generateErrorMessage() {
-    const message = document.querySelector('#message')
     message.textContent = 
     `No user was found with this username or password. 
     Please create a new account.
