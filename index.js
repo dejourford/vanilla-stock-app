@@ -198,6 +198,8 @@ logInButton.addEventListener('click', function(e) {
     if (userLoggedIn) {
         console.log(`${usernameInputValue} has logged in`)
         resetForm()
+        // when user is logged in, redirect to dashboard
+        window.location.href = 'components/dashboard.html'
     }
     else {
         makeCreateAccountButton()
