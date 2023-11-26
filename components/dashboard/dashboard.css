@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+  :root {
+    --primary-color: #141414;
+    --secondary-color: #474747;
+    --text-color: #FFFFFF;
+    --accent-color: #00ff00;
+    --negative-color: #dc143c;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    
+  }
+  
+  body {
+    font-family: 'Urbanist', sans-serif;
+    background: black;
+    color: var(--text-color);
+  }
+
+  /* pause and play buttons */
+  .fa-play, .fa-pause {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 1em;
+}
+.toggle-text {
+    color: var(--accent-color);
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+/* MAIN DASHBOARD CSS */
+.welcome-message {
+    padding: 1em;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.balance-amount {
+    padding: 0.5em;
+    border: 2px solid var(--accent-color);
+    border-radius: 0.3em;
+    width: 35%;
+    position: absolute;
+    right: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.2rem;
+}
