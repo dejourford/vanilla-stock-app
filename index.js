@@ -13,13 +13,25 @@ const logInButton = document.querySelector('.log-in-button')
 const playButton =  document.querySelector('.play-button')
 const pauseButton =  document.querySelector('.pause-button')
 const backgroundMusic = document.querySelector('#backgroundMusic')
-
+const buttonPressSound = document.querySelector('#button-press-sound')
 
 // on windows load, set play button to hidden
 playButton.style.display = 'none'
 
 // on windows load, set the music volume to 50%
-backgroundMusic.volume = 0.05
+backgroundMusic.volume = 0.08
+
+// button press audio sounds
+logInButton.addEventListener('click', playSound)
+
+// create a play sound function
+function playSound(e) {
+    console.log(e.target)
+    if (e.target === logInButton) {
+        buttonPressSound.play()
+    }
+}
+
 
 // TASK: CREATE FUNCTION TO GET USER ARRAY FROM LOCAL STORAGE
 function getLocalStorage(userArray) {
