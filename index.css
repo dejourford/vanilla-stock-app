@@ -99,10 +99,15 @@ button {
     width: 100%;
     font-weight: 800;
     cursor: pointer;
+    transition: 0.1s ease-in-out;
+}
+
+button:active {
+    transform:translateY(10px);
 }
 
 button:hover {
-    opacity: 80%;
+    opacity: 50%;
 }
 
 #create-new-account-button {
@@ -132,7 +137,7 @@ button:hover {
 /* media queries */
 @media screen and (min-width: 540px) {
     button {
-        max-width: 150px;
+        max-width: 250px;
     }
     .input-section {
         align-items: flex-start;
