@@ -22,23 +22,23 @@ const negativeSound = document.querySelector('#negative-sound')
 playButton.style.display = 'none'
 
 // on windows load, set the music volume to 50%
-backgroundMusic.volume = 0.08
-buttonPressSound.volume = 0.2
-negativeSound.volume = 0.2
+backgroundMusic.volume = 0.03
+buttonPressSound.volume = 0.1
+negativeSound.volume = 0.1
 // button press audio sounds
-logInButton.addEventListener('click', playSound)
+// logInButton.addEventListener('click', playSound)
 
 // create a play sound function
-function playSound(e) {
-    console.log(e.target)
-    if (logInButton.textContent != 'Log In' ) {
-        buttonPressSound.play()
+// function playSound(e) {
+//     console.log(e.target)
+//     // if (logInButton.textContent != 'Log In' ) {
+//     //     buttonPressSound.play()
         
-    }
-    else {
-        negativeSound.play()
-    }
-}
+//     // }
+//     if (logInButton.textContent =! 'Log In'){
+//         negativeSound.play()
+//     }
+// }
 
 
 // TASK: CREATE FUNCTION TO GET USER ARRAY FROM LOCAL STORAGE
@@ -188,6 +188,7 @@ function resetPage() {
 logInButton.addEventListener('click', function(e) {
 
     if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
+        buttonPressSound.play()
         validateUser()
         addUserToLocalStorage(users)
         
@@ -214,6 +215,7 @@ logInButton.addEventListener('click', function(e) {
     }
     else {
         makeCreateAccountButton()
+        negativeSound.play()
     }
    
     
