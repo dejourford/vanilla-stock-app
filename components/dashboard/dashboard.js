@@ -15,7 +15,7 @@ const logoutButton = document.querySelector('.logout-button')
 playButton.style.display = 'none'
 
 // on windows load, set the music volume
-backgroundMusic.volume = 0.08
+backgroundMusic.volume = 0.03
 
 // button press audio sounds
 negativeSound.volume = 0.3
