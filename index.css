@@ -84,6 +84,7 @@ input {
     background: none;
     color: var(--text-color);
     letter-spacing: 0.2em;
+    font-size: 1rem;
 }
 
 input:focus {
