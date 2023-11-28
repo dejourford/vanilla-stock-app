@@ -70,12 +70,5 @@ h1.innerHTML = `Welcome, <br> ${capitalizeUsername(currentUser.username)}!`
 
 // display balance amount
 const balanceAmount = document.querySelector('.balance-amount')
-balanceAmount.innerHTML = `$${currentUser.balance}`
+balanceAmount.innerHTML = `$${currentUser.balance}`;
 
-// BUTTON PRESS SOUND EFFECTS
-// logoutButton.addEventListener('click', function() {
-//     negativeSound.play()
-//     setTimeout(function() {
-//         window.location.href = '../../index.html'
-//     }, 1100)
-// })
