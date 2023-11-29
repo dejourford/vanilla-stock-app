@@ -39,7 +39,7 @@
     cursor: pointer;
     border: 2px solid white;
     border-radius: 50%;
-    padding: 1em;
+    padding: 0.7em;
 }
 .toggle-text {
     color: var(--accent-color);
