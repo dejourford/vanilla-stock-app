@@ -1,15 +1,14 @@
-
-
 const ls = localStorage
 const currentUser = JSON.parse(ls.getItem('currentUser'))
 console.log(`Welcome ${currentUser.username} `)
-
 const playButton =  document.querySelector('.play-button')
 const pauseButton =  document.querySelector('.pause-button')
 const backgroundMusic = document.querySelector('#backgroundMusic')
 const buttonPressSound = document.querySelector('#button-press-sound')
 const negativeSound = document.querySelector('#negative-sound')
+const main = document.querySelector('main')
 const header = document.querySelector('header')
+const buyButton = document.querySelector('#buy-button')
 const logoutButton = document.querySelector('.logout-button')
 // on windows load, set play button to hidden
 playButton.style.display = 'none'
@@ -67,4 +66,13 @@ function capitalizeUsername(name) {
     return updatedName
 }
 
+// TASK: CREATE FUNCTION TO CLEAR DOM FOR BUY CONTENT
+// WHEN BUTTON PRESSED
 
+function showBuyContent() {
+    main.innerHTML = ``
+}
+
+buyButton.addEventListener('click', () => {
+    showBuyContent()
+})
