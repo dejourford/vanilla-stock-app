@@ -44,6 +44,13 @@ pauseButton.addEventListener('click', function() {
 
 // MAIN DASHBOARD JS CONTENT
 
+// display welcome message
+const h1 = document.querySelector('h1')
+h1.innerHTML = `Welcome, <br> ${capitalizeUsername(currentUser.username)}!`
+
+// display balance amount
+const balanceAmount = document.querySelector('.balance-amount')
+balanceAmount.innerHTML = `$${currentUser.balance}`;
 
 // TASK: CAPITALIZE FIRST LETTER OF USERNAME
 function capitalizeUsername(name) {
@@ -60,11 +67,4 @@ function capitalizeUsername(name) {
     return updatedName
 }
 
-// display welcome message
-const h1 = document.querySelector('h1')
-h1.innerHTML = `Welcome, <br> ${capitalizeUsername(currentUser.username)}!`
-
-// display balance amount
-const balanceAmount = document.querySelector('.balance-amount')
-balanceAmount.innerHTML = `$${currentUser.balance}`;
 
