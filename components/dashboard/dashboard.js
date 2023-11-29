@@ -46,10 +46,6 @@ pauseButton.addEventListener('click', function() {
 
 
 // TASK: CAPITALIZE FIRST LETTER OF USERNAME
-
-
-
-
 function capitalizeUsername(name) {
     // receive username
     console.log(name)
