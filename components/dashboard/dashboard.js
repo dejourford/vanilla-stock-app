@@ -76,3 +76,12 @@ function showBuyContent() {
 buyButton.addEventListener('click', () => {
     showBuyContent()
 })
+
+
+// TASK: USE STOCK API TO FETCH DATA FOR 30 EQUITIES
+
+// receive data
+// create variable and assign it to current data value
+// use variable as url param
+// store fetched data in new array
+// move ot next data value and repeat
