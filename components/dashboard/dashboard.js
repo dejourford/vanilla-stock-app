@@ -1,6 +1,7 @@
+import stockList from "../../data.js"
+
 const ls = localStorage
 const currentUser = JSON.parse(ls.getItem('currentUser'))
-console.log(`Welcome ${currentUser.username} `)
 const playButton =  document.querySelector('.play-button')
 const pauseButton =  document.querySelector('.pause-button')
 const backgroundMusic = document.querySelector('#backgroundMusic')
@@ -54,14 +55,13 @@ balanceAmount.innerHTML = `$${currentUser.balance}`;
 // TASK: CAPITALIZE FIRST LETTER OF USERNAME
 function capitalizeUsername(name) {
     // receive username
-    console.log(name)
+   
     // grab first character of username
     // capitalize character
     const letter = name.at(0).toUpperCase()
-    console.log(letter)
+    
     // add character back to name
     const updatedName = letter + name.slice(1)
-    console.log(updatedName)
     // return result
     return updatedName
 }
@@ -79,9 +79,31 @@ buyButton.addEventListener('click', () => {
 
 
 // TASK: USE STOCK API TO FETCH DATA FOR 30 EQUITIES
-
+// const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${IBM}&apikey=7HII6Q8CVJIFKJPT`
 // receive data
+console.log(stockList)
+
 // create variable and assign it to current data value
+// let currentStock
+// for (const item of stockList) {
+//     currentStock = item.title
+    
+//     // create url fetch request to use variable as param
+    
+//     fetch(url)
+//     .then(response => {
+//         if(!response.ok) {
+//             console.log('There was an error!')
+//         }
+//         return response.json()
+//     })
+//     .then(data => {
+//         console.log(data)
+//     })
+//     .catch(error => {
+//         console.error('There was a problem with the fetch operation:', error)
+//     })
+// }
 // use variable as url param
 // store fetched data in new array
-// move ot next data value and repeat
+// move to next data value and repeat
