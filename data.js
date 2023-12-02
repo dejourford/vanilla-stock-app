@@ -96,3 +96,5 @@ const stockList = [
         title: 'cost',
     },
 ]
+
+export default stockList
