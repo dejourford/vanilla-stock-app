@@ -10,7 +10,10 @@ const negativeSound = document.querySelector('#negative-sound')
 const main = document.querySelector('main')
 const header = document.querySelector('header')
 const buyButton = document.querySelector('#buy-button')
-const logoutButton = document.querySelector('.logout-button')
+const logoutButton = document.querySelector('#logout-button')
+logoutButton.addEventListener('click', () => {
+    window.location = '../../index.html'
+})
 // on windows load, set play button to hidden
 playButton.style.display = 'none'
 
@@ -79,18 +82,35 @@ buyButton.addEventListener('click', () => {
 
 
 // TASK: USE STOCK API TO FETCH DATA FOR 30 EQUITIES
-// const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${IBM}&apikey=7HII6Q8CVJIFKJPT`
+const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AAPL&apikey=7HII6Q8CVJIFKJPT`
 // receive data
 console.log(stockList)
 
 // create variable and assign it to current data value
-// let currentStock
-// for (const item of stockList) {
-//     currentStock = item.title
+let currentStock
+for (const item of stockList) {
+    currentStock = item.title
     
-//     // create url fetch request to use variable as param
+    // create url fetch request to use variable as param
     
-//     fetch(url)
+    // fetch(url)
+    // .then(response => {
+    //     if(!response.ok) {
+    //         console.log('There was an error!')
+    //     }
+    //     return response.json()
+    // })
+    // .then(data => {
+    //     console.log(data)
+    // })
+    // .catch(error => {
+    //     console.error('There was a problem with the fetch operation:', error)
+    // })
+}
+// use variable as url param
+// store fetched data in new array
+// move to next data value and repeat
+// fetch(url)
 //     .then(response => {
 //         if(!response.ok) {
 //             console.log('There was an error!')
@@ -99,11 +119,8 @@ console.log(stockList)
 //     })
 //     .then(data => {
 //         console.log(data)
+//         console.log(data['Meta Data']['2. Symbol'])
 //     })
 //     .catch(error => {
 //         console.error('There was a problem with the fetch operation:', error)
 //     })
-// }
-// use variable as url param
-// store fetched data in new array
-// move to next data value and repeat
