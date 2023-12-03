@@ -57,6 +57,12 @@ header {
     padding: 0em 1em;
 }
 
+h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+}
+
 .welcome-message {
     padding: 0.3em;
     text-align: center;
@@ -69,47 +75,61 @@ header {
     border-radius: 0.3em;
     width: 35%;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
     letter-spacing: 0.2rem;
     align-self: flex-end;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 50vh;
+}
 
 .button-group {
     display: flex;
-    flex-direction: column;
-    gap: 2em;
     align-items: center;
-    padding: 1em;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 button {
-    width: 40%;
-    padding: 0.5em 0.3em;
+    
     font-weight: 800;
     font-size: 1rem;
-    text-transform: uppercase;
+    
     cursor: pointer;
     transition: 0.4s ease-in-out;
+   
+    background: inherit;
     border: none;
-    border-radius: 0.2em;
-    color: black;
+    color: var(--secondary-color);
 }
 
-button:hover {
-    opacity: 70%;
+.fa-chart-line,
+.fa-dollar-sign, 
+.fa-coins, 
+.fa-user {
+    font-size: 2.3rem;
 }
 
-#buy-button:hover,
-#earn-button:hover, 
-#deposit-button:hover{
-    background: var(--accent-color);
-}
+/* MEDIA QUERIES */
 
-#sell-button:hover,
-#logout-button:hover {
-    background: var(--negative-color);
+@media screen and (min-width: 1000px ) {
+    #buy-button:hover,
+    #earn-button:hover, 
+    #deposit-button:hover{
+        background: var(--accent-color);
+    }
+
+    #sell-button:hover,
+    #logout-button:hover {
+        background: var(--negative-color);
+    }
+    
 }
 
 
