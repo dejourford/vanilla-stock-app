@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="dashboard.css">
     <!-- font awesome link -->
     <script src="https://kit.fontawesome.com/46b2ce83c1.js" crossorigin="anonymous"></script>
-    <!-- highcharts cdn -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    
 </head>
 <body>
     <header>
@@ -22,29 +21,31 @@
     <main>
         <section class="stock-graph">
             <h2>Investing</h2>
+            <canvas id="myChart"></canvas>
         </section>
-        <section class="button-group">
-            <button class="dashboard-button" id="buy-button">
-                <i class="fa-solid fa-chart-line"></i>
-            </button>
-            <button class="dashboard-button" id="sell-button">
-                <i class="fa-solid fa-dollar-sign"></i>
-            </button>
-            <button class="dashboard-button" id="deposit-button">
-                <i class="fa-solid fa-coins"></i>
-            </button>
-            <button class="dashboard-button" id="logout-button">
-                
-                <i class="fa-solid fa-user"></i>
-               
-                <audio id="negative-sound">
-                    <source src="../../music/negative-sound.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </button>
-        </section>
+        
 
     </main>
+    <section class="button-group">
+        <button class="dashboard-button" id="buy-button">
+            <i class="fa-solid fa-chart-line"></i>
+        </button>
+        <button class="dashboard-button" id="sell-button">
+            <i class="fa-solid fa-dollar-sign"></i>
+        </button>
+        <button class="dashboard-button" id="deposit-button">
+            <i class="fa-solid fa-coins"></i>
+        </button>
+        <button class="dashboard-button" id="logout-button">
+            
+            <i class="fa-solid fa-user"></i>
+           
+            <audio id="negative-sound">
+                <source src="../../music/negative-sound.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </button>
+    </section>
     <footer>
         <audio id="backgroundMusic"  autoplay loop>
             <source src="../../music/mainMusic.mp3" type="audio/mpeg">
@@ -61,5 +62,7 @@
     </footer>
     <script type="module" src="dashboard.js"></script>
     <script type="module" src="../../data.js"></script>
+    <!-- chart js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
