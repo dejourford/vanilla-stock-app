@@ -1,5 +1,43 @@
 import stockList from "../../data.js"
 
+// Access the canvas element
+const ctx = document.getElementById('myChart').getContext('2d');
+
+// Create the chart
+const myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{
+      label: '',
+      data: [10, 20, 15, 25, 30],
+      borderColor: 'green',
+      borderWidth: 3,
+      pointStyle: false,
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        display: false,
+        ticksDisplay: false,
+        borderColor: 'pink'
+      },
+      
+      x: {
+        display: false,
+        borderColor: 'pink'
+      },
+    },
+    plugins: {
+        legend: {
+            display: false
+        }
+    }
+  }
+});
+
 const ls = localStorage
 const currentUser = JSON.parse(ls.getItem('currentUser'))
 const playButton =  document.querySelector('.play-button')
