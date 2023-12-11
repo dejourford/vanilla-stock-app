@@ -1,5 +1,4 @@
 
-
 let ls = localStorage
 let usernameInputValue
 let passwordInputValue
@@ -18,27 +17,17 @@ const pauseButton =  document.querySelector('.pause-button')
 const backgroundMusic = document.querySelector('#backgroundMusic')
 const buttonPressSound = document.querySelector('#button-press-sound')
 const negativeSound = document.querySelector('#negative-sound')
-// on windows load, set play button to hidden
-playButton.style.display = 'none'
+const loadingContainer = document.querySelector('.loading-container')
+const main = document.querySelector('main')
 
 // on windows load, set the music volume to 50%
-backgroundMusic.volume = 0.03
 buttonPressSound.volume = 0.1
 negativeSound.volume = 0.1
-// button press audio sounds
-// logInButton.addEventListener('click', playSound)
 
-// create a play sound function
-// function playSound(e) {
-//     console.log(e.target)
-//     // if (logInButton.textContent != 'Log In' ) {
-//     //     buttonPressSound.play()
-        
-//     // }
-//     if (logInButton.textContent =! 'Log In'){
-//         negativeSound.play()
-//     }
-// }
+// on windows load, set loading properties
+loadingContainer.style.display = 'none';
+main.style.display = 'flex';
+
 
 
 // TASK: CREATE FUNCTION TO GET USER ARRAY FROM LOCAL STORAGE
@@ -207,10 +196,15 @@ logInButton.addEventListener('click', function(e) {
         resetForm()
         // when user is logged in, redirect to dashboard
         buttonPressSound.play()
+        
+        loadingContainer.style.display = 'flex';
+    main.style.display = 'flex';
+
         // create a delayed redirect
         setTimeout(function redirectUser() {
+        
             window.location.href = 'components/dashboard/dashboard.html'
-        },1100)
+        },2000)
         
     }
     else {
@@ -221,17 +215,3 @@ logInButton.addEventListener('click', function(e) {
     
 })
 
-
-// if user clicks button, peform that function
-playButton.addEventListener('click', function() {
-    backgroundMusic.play()
-    playButton.style.display = 'none'
-    pauseButton.style.display = 'flex'
-})
-
-pauseButton.addEventListener('click', function() {
-    backgroundMusic.pause()
-    pauseButton.style.display = 'none'
-    playButton.style.display = 'flex'
-    console.log('the music has been paused')
-})
