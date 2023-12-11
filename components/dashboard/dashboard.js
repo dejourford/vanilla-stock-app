@@ -1,8 +1,11 @@
 import stockList from "../../data.js"
 
 // Access the canvas element
-const ctx = document.getElementById('myChart').getContext('2d');
 
+const canvas = document.getElementById('myChart')
+
+
+const ctx = canvas.getContext('2d')
 // Create the chart
 const myChart = new Chart(ctx, {
   type: 'line',
@@ -34,53 +37,40 @@ const myChart = new Chart(ctx, {
         legend: {
             display: false
         }
-    }
+    },
+    maintainAspectRatio: true,
+    responsive: true
   }
 });
 
+
+
 const ls = localStorage
 const currentUser = JSON.parse(ls.getItem('currentUser'))
-const playButton =  document.querySelector('.play-button')
-const pauseButton =  document.querySelector('.pause-button')
-const backgroundMusic = document.querySelector('#backgroundMusic')
 const buttonPressSound = document.querySelector('#button-press-sound')
-const negativeSound = document.querySelector('#negative-sound')
+const logoutSound = document.querySelector('#logout-sound')
 const main = document.querySelector('main')
-const header = document.querySelector('header')
 const buyButton = document.querySelector('#buy-button')
 const logoutButton = document.querySelector('#logout-button')
-logoutButton.addEventListener('click', () => {
-    window.location = '../../index.html'
-})
-// on windows load, set play button to hidden
-playButton.style.display = 'none'
-
-// on windows load, set the music volume
-backgroundMusic.volume = 0.03
+const loadingContainer = document.querySelector('.loading-container')
 
 // button press audio sounds
-negativeSound.volume = 0.3
+logoutSound.volume = 0.3
 
-// create a play sound function
-function playSound(e) {
-    console.log(e.target)
-    if (e.target === logInButton) {
-        buttonPressSound.play()
-    }
-}
+// on windows load, set loading properties
+loadingContainer.style.display = 'none';
+main.style.display = 'flex';
 
-// if user clicks button, peform that function
-playButton.addEventListener('click', function() {
-    backgroundMusic.play()
-    playButton.style.display = 'none'
-    pauseButton.style.display = 'flex'
-})
-
-pauseButton.addEventListener('click', function() {
-    backgroundMusic.pause()
-    pauseButton.style.display = 'none'
-    playButton.style.display = 'flex'
-    console.log('the music has been paused')
+// create event listener for logout button
+logoutButton.addEventListener('click', () => {
+  logoutSound.play()
+  loadingContainer.style.display = 'flex';
+    main.style.display = 'flex';
+  setTimeout(() => {
+    
+    window.location = '../../index.html'
+  }, 500)
+  
 })
 
 // MAIN DASHBOARD JS CONTENT
