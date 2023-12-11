@@ -26,7 +26,11 @@
         
 
     </main>
-    <section class="button-group">
+    <!-- Placeholder for the loading animation -->
+    <div class="loading-container">
+        <div class="loading-spinner"></div>
+    </div>
+    <footer class="button-group">
         <button class="dashboard-button" id="buy-button">
             <i class="fa-solid fa-chart-line"></i>
         </button>
@@ -34,31 +38,17 @@
             <i class="fa-solid fa-dollar-sign"></i>
         </button>
         <button class="dashboard-button" id="deposit-button">
-            <i class="fa-solid fa-coins"></i>
+            <i class="fa-solid fa-circle-dollar-to-slot"></i>
         </button>
         <button class="dashboard-button" id="logout-button">
             
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-right-from-bracket"></i>
            
-            <audio id="negative-sound">
-                <source src="../../music/negative-sound.mp3" type="audio/mpeg">
+            <audio id="logout-sound">
+                <source src="../../music/logout-sound.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </button>
-    </section>
-    <footer>
-        <audio id="backgroundMusic"  autoplay loop>
-            <source src="../../music/mainMusic.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    
-        <div class="play-button" >
-            <i class="fa-solid fa-play" style="color:#00ff00"></i>
-        </div>
-        <div class="pause-button" >
-            <i class="fa-solid fa-pause" style="color:#00ff00"></i>
-        </div>
-        <p class="toggle-text">toggle music</p>
     </footer>
     <script type="module" src="dashboard.js"></script>
     <script type="module" src="../../data.js"></script>
