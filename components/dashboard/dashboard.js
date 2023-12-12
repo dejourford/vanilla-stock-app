@@ -3,7 +3,7 @@ import stockList from "../../data.js"
 // Access the canvas element
 
 const canvas = document.getElementById('myChart')
-
+canvas.height = '150'
 
 const ctx = canvas.getContext('2d')
 // Create the chart

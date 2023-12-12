@@ -66,11 +66,7 @@ header {
     width: 80%;
 }
 
-#myChart {
-    /* width: 350px;
-    height: 300px; */
-    /* padding: 1em; */
-}
+
  
 h2 {
     font-size: clamp(16px, 4vw, 48px);
@@ -111,6 +107,8 @@ main {
     width: 100%;
     position: absolute;
     bottom: 50px;
+    
+
 }
 
 button {
@@ -167,6 +165,19 @@ button {
 
 /* MEDIA QUERIES */
 
+@media screen and (min-width: 700px) {
+    .balance-amount {
+        width: 20%;
+    }
 
+    #myChart {
+        max-width: 600px;
+        max-height: 350px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    
+}
 
 
