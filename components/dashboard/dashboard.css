@@ -22,7 +22,10 @@
     font-family: 'Urbanist', sans-serif;
     background: black;
     color: var(--text-color);
-    height: 80dvh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
 
@@ -66,7 +69,11 @@ header {
     width: 80%;
 }
 
-
+#myChart {
+    /* width: 350px;
+    height: 300px; */
+    /* padding: 1em; */
+}
  
 h2 {
     font-size: clamp(16px, 4vw, 48px);
@@ -84,7 +91,7 @@ h2 {
     padding: 0.5em;
     border: 2px solid var(--accent-color);
     border-radius: 0.3em;
-    width: 35%;
+    width: fit-content;
     text-align: center;
     font-size: 1.3rem;
     font-weight: 800;
@@ -165,19 +172,16 @@ button {
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 700px) {
-    .balance-amount {
-        width: 20%;
-    }
-
-    #myChart {
-        max-width: 600px;
-        max-height: 350px;
-    }
+@media screen and (min-width: 300px) {
+  .balance-amount {
+    align-self: center;
+  }
 }
 
-@media screen and (min-width: 1000px) {
-    
+@media screen and (min-width: 700px) {
+  .balance-amount {
+    align-self: flex-end;
+  }
 }
 
 
