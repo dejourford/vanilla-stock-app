@@ -1,6 +1,6 @@
 <h1>Stock</h1>
 <p>This is a gamified stock app that is currently under production. The goal is to create an application that allows users to buy, sell, and view stocks.</p>
-<p>Link To Project:</p> <a href="https://dejourstockapp.netlify.app"></a>
+<p>Link To Project:</p> <a href="https://dejourstockapp.netlify.app">Stock App</a>
 
 <h2>How It's Made</h2>
 <p>Tech used: HTML, CSS, JavaScript</p>
