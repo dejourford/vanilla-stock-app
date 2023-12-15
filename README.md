@@ -15,7 +15,7 @@ The Vantage Stock API was utilized to get data from specific stocks. Only 24 sto
 There is also a line chart displayed on the dashboard. ChartJS is what was used for the chart. 
 </p>
 
-<h2>Optimizations<h2>
+<h2>Optimizations</h2>
 <ul>
 <li>Removed background music from app to limit complexity of music picking up where left off when navigating through app</li>
 <li>Removed buttons on mobile screen and added icons at bottom of screen instead to add more real estate for the chart</li>
