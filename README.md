@@ -27,4 +27,5 @@ There is also a line chart displayed on the dashboard. ChartJS is what was used 
 <li>Giving a designated width to a container can cause content to overflow</li>
 <li>Background music in an app needs to be tracked somehow to maintain position while navigating through app</li>
 <li>An event listener is needed for the "Enter" key to submit form data</li>
+<li>Chart options such as responsiveness and keep-aspect-ratio are useful for charts</li>
 </ul>
