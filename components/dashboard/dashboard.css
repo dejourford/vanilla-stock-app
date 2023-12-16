@@ -33,25 +33,7 @@
     text-decoration: none;
     color: inherit;
   }
-  /* pause and play buttons */
-  .fa-play, .fa-pause {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 2px solid white;
-    border-radius: 50%;
-    padding: 1.1em;
-}
-.toggle-text {
-    color: var(--accent-color);
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    text-transform: uppercase;
-    font-weight: 100;
-}
+
 
 /* MAIN DASHBOARD CSS */
 header {
@@ -105,7 +87,7 @@ main {
 .button-group {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 100%;
     position: absolute;
     bottom: 50px;
@@ -126,11 +108,12 @@ button {
     color: var(--secondary-color);
 }
 
+.fa-house,
 .fa-chart-line,
 .fa-dollar-sign, 
 .fa-circle-dollar-to-slot, 
 .fa-right-from-bracket {
-    font-size: 2.3rem;
+    font-size: 1.7rem;
 }
 
 

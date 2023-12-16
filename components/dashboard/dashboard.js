@@ -97,11 +97,10 @@ function capitalizeUsername(name) {
     return updatedName
 }
 
-// TASK: CREATE FUNCTION TO CLEAR DOM FOR BUY CONTENT
-// WHEN BUTTON PRESSED
+// TASK: CREATE FUNCTION FOR PAGE REDIRECTS ON BUTTON PRESS
 
 function showBuyContent() {
-    main.innerHTML = ``
+    window.location = '../BuyPage/buypage.html'
 }
 
 buyButton.addEventListener('click', () => {
