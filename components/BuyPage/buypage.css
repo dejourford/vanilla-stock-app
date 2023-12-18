@@ -66,6 +66,12 @@ button {
     font-size: 1.7rem;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
 .message {
     text-transform: uppercase;
     text-align: center;
