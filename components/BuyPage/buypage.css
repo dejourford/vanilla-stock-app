@@ -70,6 +70,7 @@ header {
     display: flex;
     flex-direction: column;
     padding: 1em;
+    gap: 1em;
 }
 
 .message {
@@ -88,4 +89,12 @@ header {
     font-weight: 800;
     letter-spacing: 0.2rem;
     align-self: flex-end;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 700px) {
+    .balance-amount {
+        align-self: center;
+    }
 }
