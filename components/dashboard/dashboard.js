@@ -47,13 +47,12 @@ const myChart = new Chart(ctx, {
 
 const ls = localStorage
 const currentUser = JSON.parse(ls.getItem('currentUser'))
-const buttonPressSound = document.querySelector('#button-press-sound')
 const logoutSound = document.querySelector('#logout-sound')
 const main = document.querySelector('main')
 const buyButton = document.querySelector('#buy-button')
 const logoutButton = document.querySelector('#logout-button')
 const loadingContainer = document.querySelector('.loading-container')
-
+const homeButton = document.querySelector('#home-button')
 // button press audio sounds
 logoutSound.volume = 0.3
 
@@ -96,6 +95,10 @@ function capitalizeUsername(name) {
     // return result
     return updatedName
 }
+
+// TASK: CREATE FUNCTION FOR ACTIVE TAB COLOR CHANGE
+homeButton.style.color ='white'
+
 
 // TASK: CREATE FUNCTION FOR PAGE REDIRECTS ON BUTTON PRESS
 
