@@ -18,13 +18,13 @@ logoutSound.volume = 0.3
 
 // on windows load, set loading properties
 loadingContainer.style.display = 'none';
-main.style.display = 'flex';
+main.style.display = 'block';
 
 // create event listener for logout button
 logoutButton.addEventListener('click', () => {
   logoutSound.play()
   loadingContainer.style.display = 'flex';
-    main.style.display = 'flex';
+    main.style.display = 'block';
   setTimeout(() => {
     
     window.location = '../../index.html'
