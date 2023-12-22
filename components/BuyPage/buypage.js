@@ -1,3 +1,5 @@
+import stockList from "../../data.js"
+
 const ls = localStorage
 const homeButton = document.querySelector('#home-button')
 const message = document.querySelector('.message')
@@ -37,3 +39,8 @@ balance.innerHTML = `$${currentUser.balance}`
 
 // TASK: CREATE FUNCTION FOR ACTIVE TAB COLOR CHANGE
 buyButton.style.color = 'white'
+
+// TASK: FETCH DATA FROM STOCK API TO DISPLAY EACH STOCK IN DOM
+const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AAPL&apikey=7HII6Q8CVJIFKJPT`
+// receive data
+console.log(stockList)
