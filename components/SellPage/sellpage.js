@@ -5,9 +5,6 @@ const balance = document.querySelector('.balance-amount')
 const sellButton = document.querySelector('#sell-button')
 
 
-
-
-
 // TASK: DISPLAY BALANCE FOR CURRENT USER
 balance.innerHTML = `$${currentUser.balance}`
 
