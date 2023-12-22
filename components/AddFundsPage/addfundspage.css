@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+  :root {
+    --primary-color: #141414;
+    --secondary-color: #474747;
+    --text-color: #FFFFFF;
+    --accent-color: #00ff00;
+    --negative-color: #dc143c;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    
+  }
+  
+  body {
+    font-family: 'Urbanist', sans-serif;
+    background: black;
+    color: var(--text-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .button-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    
+
+}
+
+button {
+    
+    font-weight: 800;
+    font-size: 1rem;
+    
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+   
+    background: inherit;
+    border: none;
+    color: var(--secondary-color);
+}
+
+.fa-house,
+.fa-chart-line,
+.fa-dollar-sign, 
+.fa-circle-dollar-to-slot, 
+.fa-right-from-bracket {
+    font-size: 1.7rem;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    gap: 1em;
+}
+
+.message {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.balance-amount {
+    padding: 0.5em;
+    border: 2px solid var(--accent-color);
+    border-radius: 0.3em;
+    width: fit-content;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.2rem;
+    align-self: flex-end;
+}
+
+
+/* Styles for the loading container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5); /*Semi-transparent overlay*/
+  z-index: 9999; /* Ensure it's above other elements */
+}
+
+/* Styles for the loading spinner */
+.loading-spinner {
+  border: 5px solid #f3f3f3; /* Light gray border */
+  border-top: 5px solid var(--accent-color); /* Blue top border */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite; /* Animation details */
+}
+
+/* Keyframes for the spin animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 700px) {
+    .balance-amount {
+        align-self: center;
+    }
+}
