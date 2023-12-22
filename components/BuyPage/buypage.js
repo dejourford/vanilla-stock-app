@@ -36,37 +36,37 @@ const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toStri
 console.log('Today\'s date:', formattedDate);
 
 // TASK: CREATE MAP FUNCTION TO CREATE PROMISES FOR EACH STOCK
-const stockPromises = stockList.map(item => {
-    const apiKey = '7HII6Q8CVJIFKJPT';
-    const symbol = item
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`;
+// const stockPromises = stockList.map(item => {
+//     const apiKey = '7HII6Q8CVJIFKJPT';
+//     const symbol = item
+//     const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`;
     
-    return fetch(url)
-    .then(response => {
-        if (!response.ok) {
-            console.log('The network response was not okay!')
-        }
-        return response.json()
-    })
-    .then(data => {
-        console.log(data)
-        const stockTitle = data['Meta Data']['2. Symbol']
-        const stockPrice = data['Time Series (Daily)'][formattedDate]['1. Open']
-        return {title: stockTitle, price: stockPrice}
-    })
-    .catch(error => {
-        console.log(`There was a problem with the fetch operation for ${symbol}:`, error)
-        return {title: symbol, price: 'N/A'}
-    })
-})
+//     return fetch(url)
+//     .then(response => {
+//         if (!response.ok) {
+//             console.log('The network response was not okay!')
+//         }
+//         return response.json()
+//     })
+//     .then(data => {
+//         console.log(data)
+//         const stockTitle = data['Meta Data']['2. Symbol']
+//         const stockPrice = data['Time Series (Daily)'][formattedDate]['1. Open']
+//         return {title: stockTitle, price: stockPrice}
+//     })
+//     .catch(error => {
+//         console.log(`There was a problem with the fetch operation for ${symbol}:`, error)
+//         return {title: symbol, price: 'N/A'}
+//     })
+// })
 
-Promise.all(stockPromises)
-    .then(stockData => {
-        console.log(stockData)
+// Promise.all(stockPromises)
+//     .then(stockData => {
+//         console.log(stockData)
 
-        // store stock data array in local storage
-        ls.setItem('stockData', JSON.stringify(stockData))
-    })
-    .catch(error => {
-        console.log('Error fetching stock data:', error)
-    })
+//         // store stock data array in local storage
+//         ls.setItem('stockData', JSON.stringify(stockData))
+//     })
+//     .catch(error => {
+//         console.log('Error fetching stock data:', error)
+//     })
