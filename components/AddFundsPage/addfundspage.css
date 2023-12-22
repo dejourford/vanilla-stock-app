@@ -92,6 +92,40 @@ header {
 }
 
 
+.payment-method-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em;
+  gap: 2em;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 1em;
+  color: var(--text-color);
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+.payment-method-image {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.fa-cc-apple-pay,
+.fa-cc-paypal,
+.fa-cc-visa,
+.fa-cc-discover {
+  font-size: 2.1rem;
+}
+
+
+
 /* Styles for the loading container */
 .loading-container {
   display: flex;
