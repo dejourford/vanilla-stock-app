@@ -38,9 +38,40 @@
                 <button class="button-amount" data-amount="500">$500</button>
             </div>
         </section>
+
+        <form class="payment-section">
+            <div class="payment-section-header">
+                <p>We Accept</p>
+                <div class="card-images">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-discover"></i>
+                </div>
+            </div>
+
+            <input type="text" id="card-number-field" placeholder="Card Number">
+            <div class="card-info-group">
+
+        
+                <input type="text" class="card-info-field" placeholder="MM / YY">
+                <input type="text" class="card-info-field" placeholder="CVV">
+                <input type="text" class="card-info-field" placeholder="Zip Code">
+            </div>
+            <button class="deposit-button" type="submit">deposit</button>
+            <p class="transaction-text">You will be charged $250 by Stock</p>
+        </form>
     </main>
     <footer>
-
+        <div class="support-buttons">
+            <button class="help-button">
+                <i class="fa-solid fa-question"></i>
+                <p>Help Center</p>
+            </button>
+            <button class="live-support-button">
+                <i class="fa-solid fa-message"></i>
+                <p>Live Support</p>
+            </button>
+        </div>
+        <div class="spacer"></div>
     </footer>
     <script src="creditcardpaymentpage.js"></script>
 </body>
