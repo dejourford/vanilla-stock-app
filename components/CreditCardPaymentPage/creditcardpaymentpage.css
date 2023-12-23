@@ -30,7 +30,7 @@
     width: 100%;
     position: fixed;
     top: 0;
-    display: flex;
+    
     z-index: 1000;
     background: black;
   }
@@ -63,12 +63,17 @@ h1 {
 }
 
 .balance {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    width: fit-content;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.2em;
+    padding: 0.1em 0.5em;
 }
 
 nav {
     display: flex;
-    gap: 8em;
+    gap: 4em;
+    justify-content: space-between;
     align-items: center;
     padding: 1em 2em;
 }
@@ -118,6 +123,10 @@ h2 {
     color: var(--text-color);
     background: transparent;
     border: 1px solid var(--secondary-color);
+}
+
+.button-amount:focus {
+    outline:1px solid var(--accent-color);
 }
 
 .payment-section {

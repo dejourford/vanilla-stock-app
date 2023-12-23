@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credit / Debit Payment | Stock</title>
-    <link rel="stylesheet" href="creditcardpaymentpage.css">
     <!-- google Urbanist font -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;700&display=swap" rel="stylesheet">
      <!-- font awesome link -->
      <script src="https://kit.fontawesome.com/46b2ce83c1.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="creditcardpaymentpage.css">
 </head>
 <body>
     <header>
@@ -33,7 +33,7 @@
             <input type="text" id="deposit-amount">
             <div class="deposit-button-group">
                 <button class="button-amount" data-amount="25">$25</button>
-                <button class="button-amount" data-amount="100">$100</button>
+                <button class="button-amount" data-amount="100" autofocus>$100</button>
                 <button class="button-amount" data-amount="250">$250</button>
                 <button class="button-amount" data-amount="500">$500</button>
             </div>
@@ -57,7 +57,7 @@
                 <input type="text" class="card-info-field" placeholder="Zip Code">
             </div>
             <button class="deposit-button" type="submit">deposit</button>
-            <p class="transaction-text">You will be charged $250 by Stock</p>
+            <p class="transaction-text">You will be charged $100 by Stock</p>
         </form>
     </main>
     <footer>
