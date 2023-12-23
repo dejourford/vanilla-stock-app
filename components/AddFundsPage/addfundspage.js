@@ -37,3 +37,22 @@ balance.innerHTML = `$${currentUser.balance}`
 
 // TASK: CREATE FUNCTION FOR ACTIVE TAB COLOR CHANGE
 addFundsButton.style.color = 'white'
+
+// TASK: CREATE FUNCTION TO REDIRECT TO NECESSARY PAYMENT PAGE DEPENDING ON USER CLICK
+
+// capture the click events
+const creditCardPaymentMethod = document.querySelector('#debit')
+creditCardPaymentMethod.addEventListener('click', () => {
+  window.location = '../CreditCardPaymentPage/creditcardpaymentpage.html'
+})
+
+const payPalPaymentMethod = document.querySelector('#paypal')
+payPalPaymentMethod.addEventListener('click', () => {
+  window.location = '../PaypalPaymentPage/paypalpaymentpage.html'
+})
+
+const applePayPaymentMethod = document.querySelector('#apple-pay')
+applePayPaymentMethod.addEventListener('click', () => {
+  window.location = '../ApplepayPaymentPage/applepaypaymentpage.html'
+})
+
