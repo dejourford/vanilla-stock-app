@@ -53,6 +53,11 @@ h1 {
     font-weight: 800;
 }
 
+.back-arrow-button {
+    border: none;
+    background: transparent;
+}
+
 .fa-arrow-left-long {
     color: var(--text-color);
     font-size: 1.5rem;
