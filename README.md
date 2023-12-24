@@ -20,6 +20,7 @@ There is also a line chart displayed on the dashboard. ChartJS is what was used 
 <li>Removed background music from app to limit complexity of music picking up where left off when navigating through app</li>
 <li>Removed buttons on mobile screen and added icons at bottom of screen instead to add more real estate for the chart</li>
 <li>Added sound effects to login and logout button presses to create a gamified experience</li>
+<li>Added a 1px solid border around the button amounts when pressed to increase user experience</li>
 </ul>
 
 <h2>Lessons Learned</h2>
@@ -28,4 +29,6 @@ There is also a line chart displayed on the dashboard. ChartJS is what was used 
 <li>Background music in an app needs to be tracked somehow to maintain position while navigating through app</li>
 <li>An event listener is needed for the "Enter" key to submit form data</li>
 <li>Chart options such as responsiveness and keep-aspect-ratio are useful for charts</li>
+<li>Input fields need to have a font size of at least 1rem or 16px to avoid the mobile zoom effect when focused</li>
+<li>Labels for input fields can be used to show the user which field it's dedicated to</li>
 </ul>
