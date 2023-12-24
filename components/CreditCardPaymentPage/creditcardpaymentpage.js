@@ -46,11 +46,12 @@ buttonAmounts.forEach(button => {
 // IF IT IS CLICKED
 depositAmountField.addEventListener('click', () => {
     removeBorderFromSelected()
-    depositAmountField.value = '$'
+    depositAmountField.value = ''
 })
 
 // TASK: DISPLAY TRANSACTION MESSAGE IF INPUT FIELD HAS VALUE
 depositAmountField.addEventListener('change', () => {
+    depositAmountField.value = `$${depositAmountField.value}`
     const currentValue = depositAmountField.value
     transactionText.textContent = `You will be charged ${currentValue} by Stock`
 })
