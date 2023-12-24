@@ -134,6 +134,10 @@ h2 {
     outline:1px solid var(--accent-color);
 }
 
+.button-amount:active {
+    outline:1px solid var(--accent-color);
+}
+
 .payment-section {
     border: 1px solid var(--secondary-color);
     border-radius: 0.2em;
