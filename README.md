@@ -31,4 +31,5 @@ There is also a line chart displayed on the dashboard. ChartJS is what was used 
 <li>Chart options such as responsiveness and keep-aspect-ratio are useful for charts</li>
 <li>Input fields need to have a font size of at least 1rem or 16px to avoid the mobile zoom effect when focused</li>
 <li>Labels for input fields can be used to show the user which field it's dedicated to</li>
+<li>Using the "change" property in event listeners is how you can track state changes of inputs</li>
 </ul>
