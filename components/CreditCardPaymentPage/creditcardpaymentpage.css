@@ -134,7 +134,8 @@ h2 {
     outline:1px solid var(--accent-color);
 }
 
-.button-amount:active {
+
+.selected {
     outline:1px solid var(--accent-color);
 }
 
