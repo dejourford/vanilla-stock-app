@@ -3,6 +3,8 @@ const buttonAmounts = document.querySelectorAll('.button-amount')
 const depositAmountField = document.querySelector('#deposit-amount')
 const backArrow = document.querySelector('.back-arrow-button')
 const transactionText = document.querySelector('.transaction-text')
+const depositButton = document.querySelector('.deposit-button')
+
 
 backArrow.addEventListener('click', () => {
     window.location = '../AddFundsPage/addfundspage.html'
@@ -46,6 +48,7 @@ buttonAmounts.forEach(button => {
 // IF IT IS CLICKED
 depositAmountField.addEventListener('click', () => {
     removeBorderFromSelected()
+    selectedButton = null
     depositAmountField.value = ''
 
 })
@@ -54,7 +57,7 @@ depositAmountField.addEventListener('click', () => {
 
 depositAmountField.addEventListener('input', () => {
     const valueToNum = Number(depositAmountField.value)
-    
+
     if (isNaN(valueToNum)) {
         depositAmountField.value = ''
         
@@ -68,3 +71,16 @@ depositAmountField.addEventListener('change', () => {
     const currentValue = depositAmountField.value
     transactionText.textContent = `You will be charged ${currentValue} by Stock`
 })
+
+
+// TASK: CREATE FUNCTION FOR DEPOSIT BUTTON PRESS
+function depositFunds() {
+    depositButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(selectedButton.getAttribute('data-amount'));
+    });
+}
+
+
+
+// depositFunds()
