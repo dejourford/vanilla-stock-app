@@ -44,6 +44,11 @@ main {
     gap: 2em;
 }
 
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 h1 {
     text-transform: uppercase;
     text-align: center;
@@ -237,4 +242,10 @@ footer {
 
 .spacer {
     height: 250px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1200px) {
+    
 }
