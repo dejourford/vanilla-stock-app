@@ -47,7 +47,20 @@ buttonAmounts.forEach(button => {
 depositAmountField.addEventListener('click', () => {
     removeBorderFromSelected()
     depositAmountField.value = ''
+
 })
+
+// TASK: CREATE FUNCTION TO VALIDATE USER INPUT FOR DEPOSIT AMOUNT
+
+depositAmountField.addEventListener('input', () => {
+    const valueToNum = Number(depositAmountField.value)
+    
+    if (isNaN(valueToNum)) {
+        depositAmountField.value = ''
+        
+    }
+})
+
 
 // TASK: DISPLAY TRANSACTION MESSAGE IF INPUT FIELD HAS VALUE
 depositAmountField.addEventListener('change', () => {
