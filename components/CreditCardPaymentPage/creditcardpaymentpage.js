@@ -50,7 +50,7 @@ depositAmountField.addEventListener('click', () => {
     removeBorderFromSelected()
     selectedButton = null
     depositAmountField.value = ''
-
+    transactionText.textContent = 'Please enter a valid deposit amount.'
 })
 
 // TASK: CREATE FUNCTION TO VALIDATE USER INPUT FOR DEPOSIT AMOUNT
