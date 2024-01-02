@@ -73,14 +73,13 @@ depositAmountField.addEventListener('change', () => {
 })
 
 
-// TASK: CREATE FUNCTION FOR DEPOSIT BUTTON PRESS
-function depositFunds() {
-    depositButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        console.log(selectedButton.getAttribute('data-amount'));
-    });
-}
+// TASK: CREATE FUNCTIONALITY FOR DEPOSIT BUTTON PRESS
+
+depositButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
+    console.log(amountToBeDeposited)
+});
 
 
 
-// depositFunds()
