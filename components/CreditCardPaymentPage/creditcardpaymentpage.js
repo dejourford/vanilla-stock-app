@@ -67,17 +67,21 @@ depositAmountField.addEventListener('input', () => {
 
 // TASK: DISPLAY TRANSACTION MESSAGE IF INPUT FIELD HAS VALUE
 depositAmountField.addEventListener('change', () => {
-    depositAmountField.value = `$${depositAmountField.value}`
-    const currentValue = depositAmountField.value
-    transactionText.textContent = `You will be charged ${currentValue} by Stock`
+    const depositAmountFieldToNumber = Number(depositAmountField.value)
+    depositAmountField.value = '$' + depositAmountFieldToNumber.toFixed(2)
+    const currentValue = Number(depositAmountField.value.slice(1)).toFixed(2)
+    transactionText.textContent = 'You will be charged'+ " " +'$'+ currentValue + " " + 'by Stock'
 })
+
+
+
 
 
 // TASK: CREATE FUNCTIONALITY FOR DEPOSIT BUTTON PRESS
 
 depositButton.addEventListener('click', (e) => {
     e.preventDefault();
-    const amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
+    const amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1)).toFixed(2);
     console.log(amountToBeDeposited)
 });
 
