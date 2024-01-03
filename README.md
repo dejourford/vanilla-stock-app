@@ -21,6 +21,8 @@ There is also a line chart displayed on the dashboard. ChartJS is what was used 
 <li>Removed buttons on mobile screen and added icons at bottom of screen instead to add more real estate for the chart</li>
 <li>Added sound effects to login and logout button presses to create a gamified experience</li>
 <li>Added a 1px solid border around the button amounts when pressed to increase user experience</li>
+<li>added limit of 9 characters to deposit input field to prevent user from entering values too large</li>
+<li>implemented input validation to prevent user from entering letters instead of numbers inside input field</li>
 </ul>
 
 <h2>Lessons Learned</h2>
