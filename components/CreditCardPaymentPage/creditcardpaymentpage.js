@@ -4,7 +4,7 @@ const depositAmountField = document.querySelector('#deposit-amount')
 const backArrow = document.querySelector('.back-arrow-button')
 const transactionText = document.querySelector('.transaction-text')
 const depositButton = document.querySelector('.deposit-button')
-
+const form = document.querySelector('form')
 
 backArrow.addEventListener('click', () => {
     window.location = '../AddFundsPage/addfundspage.html'
@@ -80,10 +80,14 @@ depositAmountField.addEventListener('change', () => {
 // TASK: CREATE FUNCTIONALITY FOR DEPOSIT BUTTON PRESS
 
 depositButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
-    const amountToBeDepositedToFixed = Number(amountToBeDeposited.toFixed(2));
-    console.log(`The user wants: $${amountToBeDepositedToFixed} to be deposited to their account.`)
+    if (form.checkValidity()) {
+       e.preventDefault()
+        const amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
+        const amountToBeDepositedToFixed = Number(amountToBeDeposited.toFixed(2));
+        console.log(`The user wants: $${amountToBeDepositedToFixed} to be deposited to their account.`) 
+    }
+    
+    
 });
 
 
