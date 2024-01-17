@@ -11,8 +11,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;700&display=swap" rel="stylesheet">
     <!-- font awesome link -->
     <script src="https://kit.fontawesome.com/46b2ce83c1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="applepaypaymentpage.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="header-left">
+                <button class="back-arrow-button">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                </button>
+                
+                    
+                <h1>stock</h1>
+            </div>
+            <div class="header-right">
+                <p class="balance"><span class="dollar-sign">$&nbsp;</span>100</p>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+    
+        <main>
+            <h2>Apple Pay</h2>
+
+            <section class="deposit-section">
+                <label for="deposit-amount">Deposit Amount</label>
+                <input type="text" id="deposit-amount" maxlength="9">
+                <div class="deposit-button-group">
+                    <button class="button-amount" data-amount="25">$25</button>
+                    <button class="button-amount" data-amount="100">$100</button>
+                    <button class="button-amount" data-amount="250">$250</button>
+                    <button class="button-amount" data-amount="500">$500</button>
+                </div>
+            </section>
+
+            <form class="payment-section">
+                <div class="payment-section-header">
+                    <p>We Accept</p>
+                    <div class="card-images">
+                        <i class="fa-brands fa-cc-apple-pay"></i>
+                        
+                    </div>
+                </div>
+
+                <input type="text" id="card-number-field" placeholder="Card Number">
+                <div class="card-info-group">
+
+            
+                    <input type="text" class="card-info-field" placeholder="MM / YY">
+                    <input type="text" class="card-info-field" placeholder="CVV">
+                    <input type="text" class="card-info-field" placeholder="Zip Code">
+                </div>
+                <button class="deposit-button" type="submit">deposit</button>
+                <p class="transaction-text">Please enter a valid deposit amount.</p>
+            </form>
+        </main>
+        <footer>
+            <div class="support-buttons">
+                <button class="help-button">
+                    <i class="fa-solid fa-question"></i>
+                    <p>Help Center</p>
+                </button>
+                <button class="live-support-button">
+                    <i class="fa-solid fa-message"></i>
+                    <p>Live Support</p>
+                </button>
+            </div>
+            <div class="spacer"></div>
+        </footer>
+    </div>
     <script src="applepaypaymentpage.js"></script>
 </body>
 </html>

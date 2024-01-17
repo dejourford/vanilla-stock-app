@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+  :root {
+    --primary-color: #141414;
+    --secondary-color: #474747;
+    --text-color: #FFFFFF;
+    --accent-color: #00ff00;
+    --negative-color: #dc143c;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    
+  }
+  
+  body {
+    height: 100%;
+    background: black;
+    font-family: 'Urbanist', sans-serif;
+    color: var(--text-color);
+} 
+
+  header {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    
+    z-index: 1000;
+    background: black;
+  }
+
+main {
+    padding-top: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+}
+
+button {
+    cursor: pointer;
+}
+
+.back-arrow-button {
+    border: none;
+    background: transparent;
+}
+
+.fa-arrow-left-long {
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+.dollar-sign {
+    color: var(--accent-color);
+}
+
+.balance {
+    font-size: 1.2rem;
+    width: fit-content;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.2em;
+    padding: 0.1em 0.5em;
+}
+
+nav {
+    display: flex;
+    gap: 4em;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.deposit-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#deposit-amount {
+    padding: 1em 0.7em;
+    font-size: 1rem;
+    font-weight: 800;
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 0.2em;
+    color: var(--text-color);
+}
+
+#deposit-amount:focus {
+    outline: none;
+}
+
+.deposit-button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-amount {
+    padding: 0.7em 1.2em;
+    border-radius: 0.2em;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-color);
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+}
+
+.button-amount:focus {
+    outline:1px solid var(--accent-color);
+}
+
+
+.selected {
+    outline:1px solid var(--accent-color);
+}
+
+.payment-section {
+    border: 1px solid var(--secondary-color);
+    border-radius: 0.2em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.payment-section-header {
+    display: flex;
+    font-size: 1rem;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.fa-cc-paypal {
+    font-size: 1.5rem;
+}
+
+#card-number-field,
+.card-info-field {
+    width: 100%;
+    padding: 0.5em 0.3em;
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 0.2em;
+    font-size: 1rem;
+}
+
+#card-number-field:focus, 
+.card-info-field:focus {
+    outline: none;
+}
+
+.card-info-group {
+    display: flex;
+    gap: 1em;
+}
+
+.deposit-button {
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background: var(--accent-color);
+    padding: 0.5em 0em;
+    border-radius: 0.2em;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.transaction-text {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+footer {
+    padding: 2em;
+}
+
+.support-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.fa-question {
+    border: 1px solid var(--text-color);
+    border-radius: 50%;
+    padding: 0.3em;
+}
+
+.fa-message {
+    padding: 0.6em;
+}
+
+.help-button,
+.live-support-button {
+    display: flex;
+    gap: 0.4em;
+    align-items: center;
+    padding: 0.3em 1em;
+    border-radius: 4em;
+    border: none;
+    background:var(--secondary-color);
+    font-weight: 100;
+    color: var(--text-color);
+}
+
+.spacer {
+    height: 250px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1200px) {
+    
+}
