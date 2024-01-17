@@ -97,6 +97,8 @@ header {
   flex-direction: column;
   padding: 1em 2em;
   gap: 2em;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .payment-method {
@@ -110,6 +112,11 @@ header {
   font-weight: 100;
   letter-spacing: 0.1rem;
   cursor: pointer;
+}
+
+.payment-method:hover {
+  font-weight: 800;
+  border-bottom: 2px solid white;
 }
 
 .payment-method-image {
