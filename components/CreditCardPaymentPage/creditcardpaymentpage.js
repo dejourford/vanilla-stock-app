@@ -81,8 +81,9 @@ depositAmountField.addEventListener('change', () => {
 
 depositButton.addEventListener('click', (e) => {
     e.preventDefault();
-    const amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1)).toFixed(2);
-    console.log(amountToBeDeposited)
+    const amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
+    const amountToBeDepositedToFixed = Number(amountToBeDeposited.toFixed(2));
+    console.log(`The user wants: $${amountToBeDepositedToFixed} to be deposited to their account.`)
 });
 
 
