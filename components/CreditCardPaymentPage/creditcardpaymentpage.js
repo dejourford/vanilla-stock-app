@@ -5,11 +5,15 @@ const backArrow = document.querySelector('.back-arrow-button')
 const transactionText = document.querySelector('.transaction-text')
 const depositButton = document.querySelector('.deposit-button')
 const form = document.querySelector('form')
+const balance = document.querySelector('.balance')
+const ls = localStorage
+const user = JSON.parse(ls.getItem('currentUser'))
 
 backArrow.addEventListener('click', () => {
     window.location = '../AddFundsPage/addfundspage.html'
 })
 
+balance.textContent = `$${user.balance}`
 
 
 // TASK: CREATE FUNCTION FOR FOCUSED BUTTONS
@@ -82,9 +86,41 @@ depositAmountField.addEventListener('change', () => {
 depositButton.addEventListener('click', (e) => {
     if (form.checkValidity()) {
        e.preventDefault()
-        const amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
-        const amountToBeDepositedToFixed = Number(amountToBeDeposited.toFixed(2));
+        let amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
+        let amountToBeDepositedToFixed = Number(amountToBeDeposited.toFixed(2));
         console.log(`The user wants: $${amountToBeDepositedToFixed} to be deposited to their account.`) 
+    
+        // TASK: CREATE FUNCTIONAITLY FOR ADDING DEPOSIT AMOUNT TO BALANCE
+        console.log(`${user.username}'s balance is:`, user.balance) 
+        // TASK: UPDATE LS VALUE TO NOW CURRENT VALUE
+        const userObject = JSON.parse(ls.getItem('currentUser'))
+        userObject.balance += amountToBeDepositedToFixed
+        console.log(userObject.balance)
+        // serialize the object so it can be store back in ls
+        const updatedUser = JSON.stringify(userObject)
+        ls.setItem('currentUser', updatedUser)
+        console.log(ls.getItem('currentUser'))
+
+        // TASK: UPDATE THE USER BALANCE INSIDE THE USER ARRAY
+        // identify the current user
+        const currentUserIdentifier = JSON.parse(ls.getItem('currentUser')).username
+
+        // get the users array
+        const usersString = ls.getItem('userArray')
+        // parse the user array
+        const usersStringToArray = JSON.parse(usersString)
+        console.log(usersStringToArray)
+        // find and update the user
+        const userIndex = usersStringToArray.findIndex(user => user.username === currentUserIdentifier )
+        if (userIndex !== -1) {
+            usersStringToArray[userIndex].balance += amountToBeDepositedToFixed
+            console.log(usersStringToArray[userIndex].balance)
+        }
+        // serialize the updated array
+        const updatedUserString = JSON.stringify(usersStringToArray)
+        console.log(updatedUserString)
+        // store the updated array
+        ls.setItem('userArray', updatedUserString)
     }
     
     
@@ -92,3 +128,5 @@ depositButton.addEventListener('click', (e) => {
 
 
 
+
+console.log(ls)

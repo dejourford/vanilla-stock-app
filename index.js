@@ -4,7 +4,7 @@ let usernameInputValue
 let passwordInputValue
 let attemptedUsername
 let attemptedPassword
-let balance = 100
+let balance
 let users = getLocalStorage('userArray')
 let userLoggedIn = false
 let message = document.querySelector('#message')
@@ -139,6 +139,7 @@ function validateUser() {
         if (loginSucessful) {
             userLoggedIn = true
             currentUser = users[i]
+            ls.getItem('currentUser')
             ls.setItem('currentUser', JSON.stringify(currentUser))
             console.log(`the current user is ${currentUser.username}`)
             return
@@ -215,3 +216,4 @@ logInButton.addEventListener('click', function(e) {
     
 })
 
+console.log(ls.getItem('currentUser'))

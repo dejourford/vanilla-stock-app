@@ -34,7 +34,6 @@ logoutButton.addEventListener('click', () => {
 
 // TASK: DISPLAY BALANCE FOR CURRENT USER
 balance.innerHTML = `$${currentUser.balance}`
-
 // TASK: CREATE FUNCTION FOR ACTIVE TAB COLOR CHANGE
 addFundsButton.style.color = 'white'
 

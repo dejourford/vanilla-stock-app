@@ -70,3 +70,6 @@ console.log('Today\'s date:', formattedDate);
 //     .catch(error => {
 //         console.log('Error fetching stock data:', error)
 //     })
+
+
+console.log(ls.getItem('currentUser'))
