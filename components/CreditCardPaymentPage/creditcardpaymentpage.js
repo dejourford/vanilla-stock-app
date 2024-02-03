@@ -90,7 +90,7 @@ depositButton.addEventListener('click', (e) => {
     if (form.checkValidity()) {
        e.preventDefault()
         let amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
-        let amountToBeDepositedToFixed = parseFloat(amountToBeDeposited);
+        let amountToBeDepositedToFixed = Number(amountToBeDeposited.toFixed(2));
         console.log(`The user wants: $${amountToBeDepositedToFixed} to be deposited to their account.`) 
     
         // TASK: CREATE FUNCTIONAITLY FOR ADDING DEPOSIT AMOUNT TO BALANCE
