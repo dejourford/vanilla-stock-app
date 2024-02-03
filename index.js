@@ -175,8 +175,10 @@ function resetPage() {
 }
 
 // capture input value and store as variable on button press
-logInButton.addEventListener('click', function(e) {
 
+
+
+const login = () => {
     if (message.textContent != 'Log In to Stock' && logInButton.textContent == 'Create New Account') {
         buttonPressSound.play()
         validateUser()
@@ -187,7 +189,7 @@ logInButton.addEventListener('click', function(e) {
     }
     
     // when user clicks login, use that info to create a new user
-    e.preventDefault()
+    // e.preventDefault()
     createNewUser()
     // using the new user, compare it against the users in the local storage array
     validateUser()
@@ -213,7 +215,11 @@ logInButton.addEventListener('click', function(e) {
         negativeSound.play()
     }
    
-    
-})
+}
 
-console.log(ls.getItem('currentUser'))
+logInButton.addEventListener('click', login)
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        login()
+    }
+})
