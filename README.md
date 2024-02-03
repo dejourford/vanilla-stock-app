@@ -23,6 +23,8 @@ There is also a line chart displayed on the dashboard. ChartJS is what was used 
 <li>Added a 1px solid border around the button amounts when pressed to increase user experience</li>
 <li>added limit of 9 characters to deposit input field to prevent user from entering values too large</li>
 <li>implemented input validation to prevent user from entering letters instead of numbers inside input field</li>
+<li>added a cash register sound effect for successful money deposit transaction</li>
+<li>added a min-width value to the add funds screen to help with mobile responsiveness</li>
 </ul>
 
 <h2>Lessons Learned</h2>
@@ -34,4 +36,6 @@ There is also a line chart displayed on the dashboard. ChartJS is what was used 
 <li>Input fields need to have a font size of at least 1rem or 16px to avoid the mobile zoom effect when focused</li>
 <li>Labels for input fields can be used to show the user which field it's dedicated to</li>
 <li>Using the "change" property in event listeners is how you can track state changes of inputs</li>
+<li>updated data needs to be set to local storage to override the previous data</li>
+<li>utilize min-width values to prevent overflowing as smaller screen sizes</li>
 </ul>
