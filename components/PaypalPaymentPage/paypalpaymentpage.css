@@ -42,6 +42,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2em;
+    min-width: 375px;
 }
 
 .container {
@@ -53,7 +54,7 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     color: var(--accent-color);
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     letter-spacing: 0.05em;
     font-weight: 800;
 }
@@ -69,7 +70,7 @@ button {
 
 .fa-arrow-left-long {
     color: var(--text-color);
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 .dollar-sign {
@@ -77,7 +78,7 @@ button {
 }
 
 .balance {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     width: fit-content;
     border: 1px solid var(--accent-color);
     border-radius: 0.2em;
@@ -208,6 +209,7 @@ h2 {
 
 footer {
     padding: 2em;
+    min-width: 400px;
 }
 
 .support-buttons {

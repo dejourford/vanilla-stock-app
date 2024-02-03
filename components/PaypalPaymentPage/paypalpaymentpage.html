@@ -62,7 +62,13 @@
                     <input type="text" class="card-info-field" placeholder="CVV">
                     <input type="text" class="card-info-field" placeholder="Zip Code">
                 </div>
-                <button class="deposit-button" type="submit">deposit</button>
+                <button class="deposit-button" type="submit">deposit
+                    <audio id="purchase-sound">
+                        <source src="../../music/cash-register.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                
+                </button>
                 <p class="transaction-text">Please enter a valid deposit amount.</p>
             </form>
         </main>
