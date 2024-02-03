@@ -9,6 +9,8 @@ const balance = document.querySelector('.balance')
 const ls = localStorage
 const user = JSON.parse(ls.getItem('currentUser'))
 const purchaseSound = document.querySelector('#purchase-sound')
+const inputs = document.querySelectorAll('input')
+
 
 backArrow.addEventListener('click', () => {
     window.location = '../AddFundsPage/addfundspage.html'
@@ -125,12 +127,16 @@ depositButton.addEventListener('click', (e) => {
         console.log(user.balance)
         balance.textContent = `$${userObject.balance}`
         purchaseSound.play()
+        resetFields()
     }
     
     
 });
 
 
-
-
-console.log(ls)
+// TASK: CREATE FUNCTION TO RESET INPUT FIELDS AFTER DEPOSIT
+const resetFields = () => {
+    inputs.forEach((input) => {
+        input.value = ''
+    })
+}
