@@ -116,7 +116,7 @@ depositButton.addEventListener('click', (e) => {
         // find and update the user
         const userIndex = usersStringToArray.findIndex(user => user.username === currentUserIdentifier )
         if (userIndex !== -1) {
-            usersStringToArray[userIndex].balance += amountToBeDepositedToFixed
+            Number(usersStringToArray[userIndex].balance += amountToBeDepositedToFixed).toFixed(2)
             console.log(usersStringToArray[userIndex].balance)
         }
         // serialize the updated array
@@ -139,4 +139,5 @@ const resetFields = () => {
     inputs.forEach((input) => {
         input.value = ''
     })
+    transactionText.textContent = 'Please enter a valid deposit amount.'
 }
