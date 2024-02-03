@@ -4,7 +4,7 @@ let usernameInputValue
 let passwordInputValue
 let attemptedUsername
 let attemptedPassword
-let balance
+let balance = 100
 let users = getLocalStorage('userArray')
 let userLoggedIn = false
 let message = document.querySelector('#message')
