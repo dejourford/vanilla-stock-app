@@ -38,4 +38,5 @@ There is also a line chart displayed on the dashboard. ChartJS is what was used 
 <li>Using the "change" property in event listeners is how you can track state changes of inputs</li>
 <li>updated data needs to be set to local storage to override the previous data</li>
 <li>utilize min-width values to prevent overflowing as smaller screen sizes</li>
+<li>integer data in local storage will be stored as a string but needs to be converted to a number type to use .toFixed()</li>
 </ul>
