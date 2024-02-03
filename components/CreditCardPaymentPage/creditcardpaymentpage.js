@@ -90,7 +90,7 @@ depositButton.addEventListener('click', (e) => {
     if (form.checkValidity()) {
        e.preventDefault()
         let amountToBeDeposited = selectedButton ? Number(selectedButton.getAttribute('data-amount')) : Number(depositAmountField.value.slice(1));
-        let amountToBeDepositedToFixed = Number(amountToBeDeposited.toFixed(2));
+        let amountToBeDepositedToFixed = parseFloat(amountToBeDeposited);
         console.log(`The user wants: $${amountToBeDepositedToFixed} to be deposited to their account.`) 
     
         // TASK: CREATE FUNCTIONAITLY FOR ADDING DEPOSIT AMOUNT TO BALANCE
@@ -116,7 +116,7 @@ depositButton.addEventListener('click', (e) => {
         // find and update the user
         const userIndex = usersStringToArray.findIndex(user => user.username === currentUserIdentifier )
         if (userIndex !== -1) {
-            Number(usersStringToArray[userIndex].balance += amountToBeDepositedToFixed).toFixed(2)
+            usersStringToArray[userIndex].balance += amountToBeDepositedToFixed
             console.log(usersStringToArray[userIndex].balance)
         }
         // serialize the updated array
