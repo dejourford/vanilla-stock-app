@@ -35,41 +35,20 @@ const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toStri
 
 console.log('Today\'s date:', formattedDate);
 
-// TASK: CREATE MAP FUNCTION TO CREATE PROMISES FOR EACH STOCK
-// const stockPromises = stockList.map(item => {
-//     const apiKey = '7HII6Q8CVJIFKJPT';
-//     const symbol = item
-//     const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`;
+// TASK: CREATE FUNCTION TO FETCH DATA FOR EACH API IN DATA FILE
+const apiKey = 'a3b54a587899405eb8740b2d7f8742d1'
+const url = `https://financialmodelingprep.com/api/v3/profile/AAL?apikey=${apiKey}`
+
+fetch(url)
+.then (response => {
+    if (!response) {
+        console.log('error!')
+    }
+    return response.json()
+})
     
-//     return fetch(url)
-//     .then(response => {
-//         if (!response.ok) {
-//             console.log('The network response was not okay!')
-//         }
-//         return response.json()
-//     })
-//     .then(data => {
-//         console.log(data)
-//         const stockTitle = data['Meta Data']['2. Symbol']
-//         const stockPrice = data['Time Series (Daily)'][formattedDate]['1. Open']
-//         return {title: stockTitle, price: stockPrice}
-//     })
-//     .catch(error => {
-//         console.log(`There was a problem with the fetch operation for ${symbol}:`, error)
-//         return {title: symbol, price: 'N/A'}
-//     })
-// })
-
-// Promise.all(stockPromises)
-//     .then(stockData => {
-//         console.log(stockData)
-
-//         // store stock data array in local storage
-//         ls.setItem('stockData', JSON.stringify(stockData))
-//     })
-//     .catch(error => {
-//         console.log('Error fetching stock data:', error)
-//     })
+.then (data => {
+    console.log(data[0].price)    
+})
 
 
-console.log(ls.getItem('currentUser'))
