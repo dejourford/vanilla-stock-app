@@ -4,6 +4,7 @@
 
 <h2>How It's Made</h2>
 <p>Tech used: HTML, CSS, JavaScript</p>
+<p>Data Provided By: <a href="https://financialmodelingprep.com/developer/docs/">Financial Modeling Prep</a></p>
 <p>The only colors being used in the application are red, lime green, white, and gray. These colors will keep the 
 application simple and still familiar with users. Red will be used for decline in stock price or insufficent funds, 
 lime green for increase in stock or money values, white for text within the app, and gray for icons. 
@@ -11,7 +12,7 @@ There is a login-screen upon app load. If the user information in the input fiel
 then the user is prompted with a message in the DOM that there is no user found and a new account must be created.
 After the new account is created, it is added to local storage. If the user is already in local storage, then they
 are logged in and redirected to the user dashboard. From the dashboard, the user can buy, sell, and view stocks. 
-The Vantage Stock API was utilized to get data from specific stocks. Only 24 stocks were chosen to minimize complexity. 
+The Financial Modeling Prep API was utilized to get data from specific stocks. Only 24 stocks were chosen to minimize complexity. 
 There is also a line chart displayed on the dashboard. ChartJS is what was used for the chart. 
 </p>
 
