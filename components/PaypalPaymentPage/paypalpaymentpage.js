@@ -80,7 +80,18 @@ depositAmountField.addEventListener('change', () => {
     transactionText.textContent = 'You will be charged'+ " " +'$'+ currentValue + " " + 'by Stock'
 })
 
+// TASK: CREATE FUNCTIONALITY TO VALIDATE USER INPUT FOR CARD NUMBER
+const cardNumberField = document.querySelector('#card-number-field')
 
+cardNumberField.addEventListener('input', () => {
+    if (cardNumberField.value.length === 16) {
+        console.log('valid')
+        console.log(cardNumberField.value)
+    }
+    else {
+        console.log('invalid')
+    }
+})
 
 
 
