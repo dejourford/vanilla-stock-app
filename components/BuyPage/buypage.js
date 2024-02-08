@@ -37,18 +37,57 @@ console.log('Today\'s date:', formattedDate);
 
 // TASK: CREATE FUNCTION TO FETCH DATA FOR EACH API IN DATA FILE
 const apiKey = 'a3b54a587899405eb8740b2d7f8742d1'
-const url = `https://financialmodelingprep.com/api/v3/profile/AAL?apikey=${apiKey}`
+// const url = `https://financialmodelingprep.com/api/v3/profile/aapl?apikey=${apiKey}`
 
-fetch(url)
-.then (response => {
-    if (!response) {
-        console.log('error!')
-    }
-    return response.json()
+
+// TASK: GET STOCK LIST FROM DATA FILE
+// AND CREATE A FETCH REQUEST FOR EACH STOCK
+// CONSOLE LOG THE DATA
+
+// console log stock list from data file
+console.log(stockList)
+
+// sort stock list alphabetically
+const sortedStockData = stockList.sort((a,b) => a.localeCompare(b))
+console.log(sortedStockData)
+
+
+// create empty array for fetched data to go into 
+const fetchedDataArray = []
+
+
+// create a function for fetching stock data from api
+function fetchStockData(stock, apiKey) {
+    const url = (`https://financialmodelingprep.com/api/v3/profile/${stock}?apikey=${apiKey}`)
+
+    // create fetch request for each stock using the url
+    fetch(url)
+        .then(response => {
+            if (!response) {
+                console.log('error!')
+            }
+            return response.json()
+        })
+
+        .then(data => {            
+            // push fetched data to array
+            fetchedDataArray.push(data[0])
+            console.log(fetchedDataArray)
+        })
+
+}
+
+
+// create for each method for each stock at its position
+sortedStockData.forEach((stock) => {
+    fetchStockData(stock, apiKey)
 })
     
-.then (data => {
-    console.log(data[0].price)    
-})
+
+
+    
+
+
+
 
 
