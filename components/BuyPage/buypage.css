@@ -76,7 +76,7 @@ header {
 .message {
     text-transform: uppercase;
     text-align: center;
-    font-size: 1.7rem;
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
 }
 
 .balance-amount {
