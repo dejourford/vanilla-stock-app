@@ -51,26 +51,8 @@ console.log(stockList)
 const sortedStockData = stockList.sort((a,b) => a.localeCompare(b))
 console.log(sortedStockData)
 
-
-// TASK: CHECK LS FOR 'fetchedDataArray' AND IF FOUND,
-// DO NOTHING. IF NOT FOUND, THEN FETCH DATA.
-
-if (ls.getItem('fetchedDataArray').length === 0) {
-    // create empty array for fetched data to go into 
-    let fetchedDataArray = []
-    console.log('items not found')
-    // create for each function for each stock at its position
-    
-    sortedStockData.forEach((stock) => {
-        fetchStockData(stock, apiKey)
-        })
-}
-else {
-    console.log('items found.')
-    
-    
-}
-
+// create empty array for fetched data to go into 
+let fetchedDataArray = []
 
 
 
@@ -100,7 +82,23 @@ function fetchStockData(stock, apiKey) {
 }
 
 
+// TASK: CHECK LS FOR 'fetchedDataArray' AND IF FOUND,
+// DO NOTHING. IF NOT FOUND, THEN FETCH DATA.
 
+if (!ls.getItem('fetchedDataArray') || localStorage.getItem('fetchedDataArray') === 'null') {
+    
+    console.log('items not found, new array has been created.')
+    // create for each function for each stock at its position
+    
+    sortedStockData.forEach((stock) => {
+        fetchStockData(stock, apiKey)
+        })
+}
+else {
+    console.log('items found.')
+    
+    
+}
 
 
 
