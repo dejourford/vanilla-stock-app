@@ -161,7 +161,7 @@ setTimeout(() => fetchedDataStringFromLocalStorageToArray.forEach(item => {
     // create card buy money symbol
     const moneySymbol = document.createElement('div')
     moneySymbol.classList = 'money-symbol'
-    moneySymbol.textContent = '+'
+    moneySymbol.textContent = '$'
 
 
     // append card title and sub title to card left
@@ -179,6 +179,6 @@ setTimeout(() => fetchedDataStringFromLocalStorageToArray.forEach(item => {
     const main = document.querySelector('main')
     
     main.append(card)
-}), 2100)
+}), 1200)
 
 
