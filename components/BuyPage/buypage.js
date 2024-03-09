@@ -52,8 +52,27 @@ const sortedStockData = stockList.sort((a,b) => a.localeCompare(b))
 console.log(sortedStockData)
 
 
-// create empty array for fetched data to go into 
-const fetchedDataArray = []
+// TASK: CHECK LS FOR 'fetchedDataArray' AND IF FOUND,
+// DO NOTHING. IF NOT FOUND, THEN FETCH DATA.
+
+if (ls.getItem('fetchedDataArray').length === 0) {
+    // create empty array for fetched data to go into 
+    let fetchedDataArray = []
+    console.log('items not found')
+    // create for each function for each stock at its position
+    
+    sortedStockData.forEach((stock) => {
+        fetchStockData(stock, apiKey)
+        })
+}
+else {
+    console.log('items found.')
+    
+    
+}
+
+
+
 
 
 // create a function for fetching stock data from api
@@ -73,21 +92,93 @@ function fetchStockData(stock, apiKey) {
             // push fetched data to array
             fetchedDataArray.push(data[0])
             console.log(fetchedDataArray)
+            // TASK: STORE RESULTING ARRAY TO LOCAL STORAGE
+            // convert resulting array to string and store in ls
+            ls.setItem('fetchedDataArray', JSON.stringify(fetchedDataArray))
         })
 
 }
 
 
-// create for each method for each stock at its position
-sortedStockData.forEach((stock) => {
-    fetchStockData(stock, apiKey)
-})
+
+
+
+
+
+
+// TASK: CONSOLE LOG FETCHED DATA ARRAY IN LOCAL STORAGE
+// get fetched data array from local storage and parse
+// console log parsed data
+const fetchedDataStringFromLocalStorage = ls.getItem('fetchedDataArray')
+const fetchedDataStringFromLocalStorageToArray = JSON.parse(fetchedDataStringFromLocalStorage)
+console.log(fetchedDataStringFromLocalStorageToArray)
+
+// TASK: SORT FETCHED ARRAY ALPHABETICALLY BY SYMBOL
+fetchedDataStringFromLocalStorageToArray.sort((a,b) => a.symbol.localeCompare(b.symbol))
+// console log sorted array
+console.log(fetchedDataStringFromLocalStorageToArray)
     
+// display spinning wheel until set timeout function
+loadingContainer.style.display = 'flex';
+// TASK: CREATE FOR EACH FUNCTION TO MAKE CARDS FOR EACH STOCK
+setTimeout(() => fetchedDataStringFromLocalStorageToArray.forEach(item => {
+    // hide spinning wheel animation after 2-3 seconds
+     loadingContainer.style.display = 'none'   
+          
+    
+    
+    console.log(item)
+    // create card container
+    const card = document.createElement('div')
+    card.classList = 'card'
+    
+    // create a card left side
+    const cardLeft = document.createElement('div')
+    cardLeft.classList = 'card-left'
 
+    // create card subtitle
+    const cardTitle = document.createElement('h3')
+    cardTitle.classList = 'card-title'
+    cardTitle.textContent = item.companyName
 
     
+    // create card title
+    const cardSubTitle = document.createElement('p')
+    cardSubTitle.classList = 'card-sub-title'
+    cardSubTitle.textContent = item.symbol
 
 
+    // // create card price
+    // const cardPrice = document.createElement('p')
+    // cardPrice.classList = 'card-price'
+    // cardPrice.textContent = item.price
+    // append all elements to card
 
+    // create card right side
+    const cardRight = document.createElement('div')
+    cardRight.classList = 'card-right'
+
+    // create card buy money symbol
+    const moneySymbol = document.createElement('div')
+    moneySymbol.classList = 'money-symbol'
+    moneySymbol.textContent = '+'
+
+
+    // append card title and sub title to card left
+    cardLeft.append(cardTitle, cardSubTitle)
+
+
+    // append money symbol to card right
+    cardRight.append(moneySymbol)
+
+    // append card left and card right to card
+    card.append(cardLeft, cardRight)
+
+
+    // append card to DOM
+    const main = document.querySelector('main')
+    
+    main.append(card)
+}), 2100)
 
 
