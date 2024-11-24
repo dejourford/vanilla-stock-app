@@ -57,126 +57,106 @@ let fetchedDataArray = []
 
 
 
-// create a function for fetching stock data from api
-function fetchStockData(stock, apiKey) {
-    const url = (`https://financialmodelingprep.com/api/v3/profile/${stock}?apikey=${apiKey}`)
-
-    // create fetch request for each stock using the url
-    fetch(url)
-        .then(response => {
-            if (!response) {
-                console.log('error!')
-            }
-            return response.json()
-        })
-
-        .then(data => {            
-            // push fetched data to array
-            fetchedDataArray.push(data[0])
-            console.log(fetchedDataArray)
-            // TASK: STORE RESULTING ARRAY TO LOCAL STORAGE
-            // convert resulting array to string and store in ls
-            ls.setItem('fetchedDataArray', JSON.stringify(fetchedDataArray))
-        })
-
-}
-
-
-// TASK: CHECK LS FOR 'fetchedDataArray' AND IF FOUND,
-// DO NOTHING. IF NOT FOUND, THEN FETCH DATA.
-
-if (!ls.getItem('fetchedDataArray') || localStorage.getItem('fetchedDataArray') === 'null') {
-    
-    console.log('items not found, new array has been created.')
-    // create for each function for each stock at its position
-    
-    sortedStockData.forEach((stock) => {
-        fetchStockData(stock, apiKey)
-        })
-}
-else {
-    console.log('items found.')
-    
-    
-}
-
-
-
-
-
-// TASK: CONSOLE LOG FETCHED DATA ARRAY IN LOCAL STORAGE
-// get fetched data array from local storage and parse
-// console log parsed data
-const fetchedDataStringFromLocalStorage = ls.getItem('fetchedDataArray')
-const fetchedDataStringFromLocalStorageToArray = JSON.parse(fetchedDataStringFromLocalStorage)
-console.log(fetchedDataStringFromLocalStorageToArray)
-
-// TASK: SORT FETCHED ARRAY ALPHABETICALLY BY SYMBOL
-fetchedDataStringFromLocalStorageToArray.sort((a,b) => a.symbol.localeCompare(b.symbol))
-// console log sorted array
-console.log(fetchedDataStringFromLocalStorageToArray)
-    
-// display spinning wheel until set timeout function
-loadingContainer.style.display = 'flex';
 // TASK: CREATE FOR EACH FUNCTION TO MAKE CARDS FOR EACH STOCK
-setTimeout(() => fetchedDataStringFromLocalStorageToArray.forEach(item => {
-    // hide spinning wheel animation after 2-3 seconds
-     loadingContainer.style.display = 'none'   
-          
-    
-    
-    console.log(item)
-    // create card container
-    const card = document.createElement('div')
-    card.classList = 'card'
-    
-    // create a card left side
-    const cardLeft = document.createElement('div')
-    cardLeft.classList = 'card-left'
+async function fetchAndDisplayStocks() {
+    // Check if 'fetchedDataArray' exists in local storage
+    let fetchedDataStringFromLocalStorage = ls.getItem('fetchedDataArray');
+    let fetchedDataArray = fetchedDataStringFromLocalStorage ? JSON.parse(fetchedDataStringFromLocalStorage) : null;
 
-    // create card subtitle
-    const cardTitle = document.createElement('h3')
-    cardTitle.classList = 'card-title'
-    cardTitle.textContent = item.companyName
+    if (!fetchedDataArray || fetchedDataArray === 'null') {
+        console.log('Items not found, fetching new data.');
+        fetchedDataArray = [];
 
-    
-    // create card title
-    const cardSubTitle = document.createElement('p')
-    cardSubTitle.classList = 'card-sub-title'
-    cardSubTitle.textContent = item.symbol
+        // Fetch data for each stock
+        for (const stock of sortedStockData) {
+            const url = `https://financialmodelingprep.com/api/v3/profile/${stock}?apikey=${apiKey}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Error fetching data for ${stock}`);
+                const data = await response.json();
+                fetchedDataArray.push(data[0]); // Add the stock data to the array
+            } catch (error) {
+                console.error(`Failed to fetch data for ${stock}:`, error);
+            }
+        }
+
+        // Store fetched data in local storage
+        ls.setItem('fetchedDataArray', JSON.stringify(fetchedDataArray));
+    } else {
+        console.log('Items found in local storage.');
+    }
+
+    // Sort fetched array alphabetically by symbol
+    fetchedDataArray.sort((a, b) => a.symbol.localeCompare(b.symbol));
+
+    // Display fetched data
+    displayStockCards(fetchedDataArray);
+}
+
+// Function to display stock cards
+function displayStockCards(stocks) {
+    loadingContainer.style.display = 'none'; // Hide loading spinner
+
+    stocks.forEach(item => {
+        console.log(item);
+
+        // Create card container
+        const card = document.createElement('div');
+        card.classList = 'card';
+        card.id = item.symbol;
+
+        // Create a card left side
+        const cardLeft = document.createElement('div');
+        cardLeft.classList = 'card-left';
+
+        // Create card subtitle
+        const cardTitle = document.createElement('h3');
+        cardTitle.classList = 'card-title';
+        cardTitle.textContent = item.companyName;
+
+        // Create card title
+        const cardSubTitle = document.createElement('p');
+        cardSubTitle.classList = 'card-sub-title';
+        cardSubTitle.textContent = item.symbol;
+
+        // Create card right side
+        const cardRight = document.createElement('div');
+        cardRight.classList = 'card-right';
+
+        // Create card buy money symbol
+        const moneySymbol = document.createElement('div');
+        moneySymbol.classList = 'money-symbol';
+        moneySymbol.textContent = '$';
+
+        // Append card title and sub title to card left
+        cardLeft.append(cardTitle, cardSubTitle);
+
+        // Append money symbol to card right
+        cardRight.append(moneySymbol);
+
+        // Append card left and card right to card
+        card.append(cardLeft, cardRight);
+
+        // Append card to DOM
+        main.append(card);
+    });
+
+    // Add click event listeners to each card
+    const stockItems = document.querySelectorAll('.card');
+    stockItems.forEach(item => {
+        item.addEventListener('click', function () {
+            console.log(item);
+        });
+    });
+}
+
+// Call the main function
+loadingContainer.style.display = 'flex'; // Show loading spinner while data is being fetched
+fetchAndDisplayStocks();
 
 
-    // // create card price
-    // const cardPrice = document.createElement('p')
-    // cardPrice.classList = 'card-price'
-    // cardPrice.textContent = item.price
-    // append all elements to card
-
-    // create card right side
-    const cardRight = document.createElement('div')
-    cardRight.classList = 'card-right'
-
-    // create card buy money symbol
-    const moneySymbol = document.createElement('div')
-    moneySymbol.classList = 'money-symbol'
-    moneySymbol.textContent = '$'
 
 
-    // append card title and sub title to card left
-    cardLeft.append(cardTitle, cardSubTitle)
 
-
-    // append money symbol to card right
-    cardRight.append(moneySymbol)
-
-    // append card left and card right to card
-    card.append(cardLeft, cardRight)
-
-
-    // append card to DOM
-    const main = document.querySelector('main')
-    
-    main.append(card)
-}), 1200)
 
 
