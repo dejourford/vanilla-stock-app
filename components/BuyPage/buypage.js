@@ -1,4 +1,5 @@
 import stockList from "../../data.js"
+import { displayStockInfo }  from "../StockPage/stockpage.js"
 
 const ls = localStorage
 const homeButton = document.querySelector('#home-button')
@@ -146,23 +147,21 @@ function displayStockCards(stocks) {
         item.addEventListener('click', function () {
             // call display stock info function
             console.log(item);
+
+            // get stock id from div element and add to redirect query location
+    const stockTicker = item.querySelector('.card-sub-title').textContent
+    window.location = `/components/StockPage/stockpage.html?stock=${stockTicker}`
+
             displayStockInfo(item);
         });
     });
 }
 
-// Redirect to stock info when stock is clicked
-function displayStockInfo(stock) {
-    
-    const stockTicker = stock.querySelector('.card-sub-title').textContent
-    window.location = `/components/StockPage/stockpage.html?stock=${stockTicker}`
 
-}
 
 // Call the main function
 loadingContainer.style.display = 'flex';
 fetchAndDisplayStocks();
-
 
 
 
