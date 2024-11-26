@@ -13,7 +13,6 @@ const main = document.querySelector('main')
 
 
 
-
 // TASK: DISPLAY BALANCE FOR CURRENT USER
 balance.innerHTML = `$${currentUser.balance}`
 
@@ -95,7 +94,7 @@ async function fetchAndDisplayStocks() {
 
 // Function to display stock cards
 function displayStockCards(stocks) {
-    loadingContainer.style.display = 'none'; // Hide loading spinner
+    loadingContainer.style.display = 'none';
 
     stocks.forEach(item => {
         console.log(item);
@@ -145,14 +144,23 @@ function displayStockCards(stocks) {
     const stockItems = document.querySelectorAll('.card');
     stockItems.forEach(item => {
         item.addEventListener('click', function () {
+            // call display stock info function
             console.log(item);
+            displayStockInfo(item);
         });
     });
 }
 
+function displayStockInfo(stock) {
+    console.log(stock)
+    window.location = '/components/StockPage/stockpage.html'
+    
+}
+
 // Call the main function
-loadingContainer.style.display = 'flex'; // Show loading spinner while data is being fetched
+loadingContainer.style.display = 'flex';
 fetchAndDisplayStocks();
+
 
 
 
