@@ -151,10 +151,12 @@ function displayStockCards(stocks) {
     });
 }
 
+// Redirect to stock info when stock is clicked
 function displayStockInfo(stock) {
-    console.log(stock)
-    window.location = '/components/StockPage/stockpage.html'
     
+    const stockTicker = stock.querySelector('.card-sub-title').textContent
+    window.location = `/components/StockPage/stockpage.html?stock=${stockTicker}`
+
 }
 
 // Call the main function
