@@ -14,31 +14,43 @@ const main = document.querySelector('main');
 // TASK: DISPLAY BALANCE FOR CURRENT USER
 balance.innerHTML = `$${currentUser.balance}`
 
+// Get Stock Info From Local Storage
+const stockInfo = JSON.parse(ls.getItem('fetchedDataArray'))
+console.log(stockInfo)
+
 
 // Redirect to stock info when stock is clicked
-export function displayStockInfo(stock) {
+export function displayStockInfo() {
 
-    // add stock info to DOM
-    
     // Parse the query string
-document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const stock = params.get('stock');
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const stock = params.get('stock');
 
-    if (stock) {
-        // Update the DOM with the stock info
-        const stockInfoHeader = document.querySelector('.message');
-        stockInfoHeader.textContent = `${stock}`;
-    }
-});
-    
-    const stockInfoSection = document.querySelector('.stock-info');
-    console.log(stockInfoSection)
-    // stockInfoSection.insertAdjacentHTML('afterend', `
-    //         <h1>Test</h1>
-    //     `) 
+        if (stock) {
+            // Update the DOM with the stock info
+            const stockInfoHeader = document.querySelector('.message');
+            stockInfoHeader.textContent = `${stock}`;
+        }
 
-        
+        // add stock info to DOM
+
+        const stockInfoSection = document.querySelector('.stock-info');
+        const stockElement = document.querySelector('h1');
+        const stockElementText = stockElement.textContent;
+
+        // filter stock array by matching stockElementText on page
+        const stockToDisplay = stockInfo.filter(item => item.symbol === stockElementText)
+        console.log(stockToDisplay)
+
+        // create text to put on page with filtered data
+        const stockText = document.createElement('p');
+        stockText.textContent = stockToDisplay[0].companyName;
+        stockInfoSection.append(stockText)
+
+    });
+
+
 }
 
 displayStockInfo();
