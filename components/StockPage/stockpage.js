@@ -16,8 +16,6 @@ balance.innerHTML = `$${currentUser.balance}`
 
 // Get Stock Info From Local Storage
 const stockInfo = JSON.parse(ls.getItem('fetchedDataArray'))
-console.log(stockInfo)
-
 
 // Redirect to stock info when stock is clicked
 export function displayStockInfo() {
