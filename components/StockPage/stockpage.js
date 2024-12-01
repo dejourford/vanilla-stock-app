@@ -48,6 +48,7 @@ export function displayStockInfo() {
         stockText.textContent = stockToDisplay[0].companyName;
         stockInfoSection.append(stockText)
 
+        // create a html template using insertAdjacentHTML('afterend') instead of creating individual elements
     });
 
 
