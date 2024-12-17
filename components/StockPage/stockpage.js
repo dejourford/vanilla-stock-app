@@ -41,12 +41,15 @@ export function displayStockInfo() {
         const stockToDisplay = stockInfo.filter(item => item.symbol === stockElementText)
         console.log(stockToDisplay)
 
-        // create text to put on page with filtered data
-        const stockText = document.createElement('p');
-        stockText.textContent = stockToDisplay[0].companyName;
-        stockInfoSection.append(stockText)
 
         // create a html template using insertAdjacentHTML('afterend') instead of creating individual elements
+        stockInfoSection.insertAdjacentHTML('beforeend', `
+                <section class="stock-info">
+                <h2>${stockToDisplay[0].companyName}</h2>
+                <h3>${stockToDisplay[0].sector}</h3>
+                <span>$${stockToDisplay[0].price}</span>
+                </section>
+            `)
     });
 
 
