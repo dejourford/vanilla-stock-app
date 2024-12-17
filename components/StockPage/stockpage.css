@@ -1,0 +1,14 @@
+.stock-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height:400px;
+}
+
+.stock-price {
+    color: var(--accent-color);
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+}
