@@ -45,9 +45,13 @@ export function displayStockInfo() {
         // create a html template using insertAdjacentHTML('afterend') instead of creating individual elements
         stockInfoSection.insertAdjacentHTML('beforeend', `
                 <section class="stock-data">
-                <h2>${stockToDisplay[0].companyName}</h2>
-                <h3>${stockToDisplay[0].sector}</h3>
-                <span class="stock-price">$${stockToDisplay[0].price}</span>
+                    <h2>${stockToDisplay[0].companyName}</h2>
+                    <h3>${stockToDisplay[0].sector}</h3>
+                    <span class="stock-price">$${stockToDisplay[0].price}</span>
+                    <div class="stock-button-group">
+                        <p class="buy-btn">Buy</p>
+                        <p class="sell-btn">Sell</p>
+                    </div>    
                 </section>
             `)
     });
